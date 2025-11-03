@@ -153,16 +153,39 @@ app.post("/api/sendEmail", upload.any(), async (req, res) => {
         });
 
         // 2. Send thank-you email to user
-        await transporter.sendMail({
+       await transporter.sendMail({
   from: `Køretøjsvurdering <${process.env.TO_EMAIL}>`,
   to: fields.email,
-  subject: "✅ Tak for din indsendelse af skadevurdering",
+  subject: "Tak for din indsendelse af skadevurdering",
   html: `
-    <p>Kære ${fields.name},</p>
-    <p>Vi har modtaget din skadevurdering for dit køretøj (${fields.car_make} ${fields.car_model}).</p>
-    <p>Med venlig hilsen,<br/>Car Service Team</p>
+  <div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px; background-color: #f9f9f9;">
+    <h2 style="color: #2c3e50;">Hej ${fields.name},</h2>
+    <p>Tak for at indsende din skadevurdering for dit køretøj.</p>
+
+    <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+      <tr style="background-color: #ececec;">
+        <th style="padding: 10px; text-align: left;">Bil</th>
+        <th style="padding: 10px; text-align: left;">Model</th>
+      </tr>
+      <tr>
+        <td style="padding: 10px;">${fields.car_make}</td>
+        <td style="padding: 10px;">${fields.car_model}</td>
+      </tr>
+    </table>
+
+    <p>Vores team vil gennemgå oplysningerne og kontakte dig inden for 24 timer.</p>
+
+    <p style="margin-top: 30px;">Med venlig hilsen,<br/>
+    <strong>Quick Repair Team</strong></p>
+
+    <hr style="border: none; border-top: 1px solid #ddd; margin: 20px 0;" />
+
+    <p style="font-size: 12px; color: #888;">Dette er en automatisk besked. Venligst svar ikke direkte på denne email.</p>
+  </div>
   `,
 });
+
+
 
 
         res.json({ success: true, message: "Email sent successfully" });
