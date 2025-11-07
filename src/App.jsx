@@ -81,13 +81,13 @@ function ProgressStepper({ config, currentStep, appState }) {
                       )}
                     </div>
                     <span
-                      className={clsx("text-sm text-center leading-tight whitespace-normal break-words", {
+                      className={clsx("text-sm text-center leading-tight whitespace-pre-line break-words", {
                         "text-orange-600": active,
                         "text-gray-900": completed,
                         "text-gray-500": !completed && !active,
                       })}
                     >
-                      {step.name}
+  {step.name.replace(" ", "\n")}
                     </span>
                   </div>
 
@@ -366,11 +366,13 @@ function App() {
                 </div>
 
                 <h2 className="text-xl font-semibold text-[#fb5c14]">
-                  Indsendelse af din vurdering...
+                  Indsender din
+                  skadesanmeldelse…
 
                 </h2>
                 <p className="text-gray-600 mt-2 text-sm max-w-sm">
-                  Vær venligst patient og vent i nogle sekunder, mens vi behandler dine data og sender bekræftelse.                </p>
+                  Vent venligst imens vi uploader din
+                  skadesanmeldelse og sender en bekræftelse.       </p>
               </div>
             )}
 
@@ -386,7 +388,8 @@ function App() {
         {/* Footer */}
         <footer className="bg-white border-t">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6 text-center font-bold text-sm text-gray-500">
-            © 2025 Quick Repair Bilskade Assessment
+            © 2025 QuickRepair.dk –
+            Skadesanmeldelse
           </div>
         </footer>
       </div>

@@ -204,21 +204,21 @@ const DamageAssessmentForm = ({ onSubmit, onBack,/* userDetails */ }) => {
       {/* Viewer Switch */}
       {vehicleType === "car" ? (
         <>
-        <CarViewer2D
-          onAreaSelect={handleAreaSelect}
-          selectedAreas={selectedAreas}
-          height={500}
+          <CarViewer2D
+            onAreaSelect={handleAreaSelect}
+            selectedAreas={selectedAreas}
+            height={500}
           />
-          </>
+        </>
       ) : (
         <>
-        <VanViewer2D
-          onAreaSelect={handleAreaSelect}
-          selectedAreas={selectedAreas}
-          height={500}
+          <VanViewer2D
+            onAreaSelect={handleAreaSelect}
+            selectedAreas={selectedAreas}
+            height={500}
           />
-     
-          </>
+
+        </>
       )}
 
       {/* Selected damages panel */}
@@ -282,10 +282,23 @@ const DamageAssessmentForm = ({ onSubmit, onBack,/* userDetails */ }) => {
       <Card>
         <CardHeader>
           <CardTitle className="text-lg">Upload billeder af skader</CardTitle>
-          <CardDescription>
-            Upload tydelige billeder, der viser skaden på dit køretøj. Flere vinkler anbefales.
+          {/* <CardDescription> */}
+            <div className="text-sm text-gray-600 mt-2">
+              <p className="flex items-center gap-2 mb-2 font-bold">
 
-          </CardDescription>
+              Tips til gode billeder af skaden: 
+              </p>
+
+    <ul className="list-decimal list-inside space-y-1">
+      <li>Tag billeder i dagslys.</li>
+      <li>Rengør eventuelt det skadede område.</li>
+      <li>Fotografer hele bilen fra flere vinkler.</li>
+      <li>Zoom ind på skaden – tæt og i fokus.</li>
+      <li>Undgå genskin og slørede billeder.</li>
+    </ul>
+  </div>
+          
+          {/* </CardDescription> */}
         </CardHeader>
         <CardContent>
           <ImageUpload
@@ -305,7 +318,7 @@ const DamageAssessmentForm = ({ onSubmit, onBack,/* userDetails */ }) => {
           disabled={loading}
           className="w-full sm:w-auto text-sm"
         >
-          Tilbage til detaljer
+          Tilbage
         </Button>
 
         <Button
@@ -315,7 +328,7 @@ const DamageAssessmentForm = ({ onSubmit, onBack,/* userDetails */ }) => {
           disabled={!isValid || fields.length === 0 || images.length === 0}
           className="w-full sm:w-auto text-sm text-[#FB5C14] border border-[#FB5C14] hover:bg-[#FB5C14] hover:text-white"
         >
-          {loading ? "Sender..." : "Indsend vurdering"}
+          {loading ? "Sender..." : "Indsend"}
         </Button>
       </CardFooter>
 

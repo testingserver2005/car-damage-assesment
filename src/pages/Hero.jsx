@@ -3,17 +3,18 @@ import { ArrowRight, ArrowDown, Star, Shield, Clock } from 'lucide-react';
 
 function Hero() {
   return (
-<div className=""
-     >      {/* Hero Section */}
+    <div className=""
+    >      {/* Hero Section */}
       <section className="relative md:min-h-[50vh] min-h-[50vh]  flex items-center justify-center px-4 sm:px-6 md:px-8 overflow-hidden">
         {/* Background Image with Overlay */}
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        <div
+          className="absolute inset-0 bg-center bg-cover bg-no-repeat"
           style={{
-            backgroundImage: 'url(/hero.jpg)'
+            backgroundImage: 'url(/hero.jpg)',
+
           }}
         >
-          <div className="absolute inset-0 bg-gradient-to-br from-orange-900/90 via-yellow-900/80 to-orange-900/90" style={{background: '#56471a', opacity: 0.8}}></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-orange-900/90 via-yellow-900/80 to-orange-900/90" style={{ background: '#56471a', opacity: 0.8 }}></div>
         </div>
 
         {/* Content */}
@@ -34,7 +35,10 @@ function Hero() {
 
             {/* Subtitle */}
             <p className="text-base sm:text-lg md:text-2xl text-white/80 max-w-2xl sm:max-w-3xl mx-auto leading-relaxed px-2">
-              Identificér nemt din bil og dens skader – indtast blot din nummerplade, bekræft din bils oplysninger, og vis os, hvor skaden er.
+              Identificer nemt din bil og skaden –
+              Indtast registreringsnummer, bekræft
+              din bils oplysninger og marker hvor
+              din skade er.
             </p>
 
             {/* CTA Buttons */}
@@ -75,11 +79,11 @@ function Hero() {
                 <p className="text-white/70">Professional-grade assessment by certified experts</p>
               </div>
             </div> */}<div className="flex justify-center">
-          <ArrowDown className="w-6 h-6 sm:w-8 sm:h-8 animate-bounce mt-6 mb-3 text-white" />
-        </div>
+              <ArrowDown className="w-6 h-6 sm:w-8 sm:h-8 animate-bounce mt-6 mb-3 text-white" />
+            </div>
           </div>
         </div>
-   </section>
+      </section>
     </div>
   );
 }

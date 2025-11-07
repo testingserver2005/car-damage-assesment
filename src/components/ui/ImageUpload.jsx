@@ -123,7 +123,7 @@ const ImageUpload = ({
       {images.length > 0 && (
         <div className="mt-4">
           <h4 className="text-sm font-medium text-gray-700 mb-3">
-            Uploaded Images ({images.length})
+            Billeder tilføjet ({images.length})
           </h4>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {images.map((image) => (

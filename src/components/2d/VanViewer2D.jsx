@@ -11,15 +11,15 @@ const VAN_PARTS = {
   { id: 'mudguardLeft', name: 'Venstre bagskærm', file: 'mudguardLeft.png', zIndex: 29, x: 69.5, y: 20, width: 11, height: 42 },
   { id: 'fenderLeft', name: 'Venstre forskærm', file: 'fenderLeft.png', zIndex: 21, x: 37, y: 42, width: 10, height: 23 },
   { id: 'roofEdgeLeft', name: 'Venstre tagstolpe', file: 'roofEdgeFront.png', zIndex: 28, x: 42, y: 18, width: 37, height: 27 },
-  { id: 'frontBumper', name: 'Forreste kofanger', file: 'bumperFront.png', zIndex: 30, x: 19, y: 56, width: 21, height: 22 },
-  { id: 'rearBumper', name: 'Bageste kofanger', file: 'bumperRear.png', zIndex: 30, x: 77, y: 46, width: 4, height: 14 },
+  { id: 'frontBumper', name: 'Forkofanger', file: 'bumperFront.png', zIndex: 30, x: 19, y: 56, width: 21, height: 22 },
+  { id: 'rearBumper', name: 'Bagkofanger', file: 'bumperRear.png', zIndex: 30, x: 77, y: 46, width: 4, height: 14 },
 
   { id: 'doorFrontLeft', name: 'Venstre fordør', file: 'doorFrontLeft.png', zIndex: 30, x: 46, y: 40, width: 14, height: 32 },
   { id: 'doorRearLeft', name: 'Venstre sidedør', file: 'doorRearLeft.png', zIndex: 30, x: 59, y: 37, width: 11, height: 30 },
 
   { id: 'wheelFrontLeft', name: 'Venstre forhjul', file: 'wheelFrontLeft.png', zIndex: 22, x: 39, y: 63, width: 9, height: 21 },
   { id: 'wheelRearLeft', name: 'Venstre baghjul', file: 'wheelRearLeft.png', zIndex: 30, x: 72, y: 51, width: 5, height: 17 },
-  { id: 'bonnet', name: 'Motorhjelm', file: 'bonnet.png', zIndex: 19, x: 21, y: 39, width: 22, height: 15 },
+  { id: 'bonnet', name: 'Forklap', file: 'bonnet.png', zIndex: 19, x: 21, y: 39, width: 22, height: 15 },
   { id: 'panelLeft', name: 'Venstre panel', file: 'panelLeft.png', zIndex: 35, x: 49, y: 62, width: 22, height: 11 },
   { id: 'windowRearLeft', name: 'Venstre bagrude', file: 'windowRearLeft.png', zIndex: 35, x: 69, y: 21, width: 8, height: 15 },
   { id: 'lightRearLeft', name: 'Venstre baglygte', file: 'lightRearLeft.png', zIndex: 35, x: 79.5, y: 40, width: 1, height: 8 },
@@ -38,15 +38,15 @@ frontRight: [
   { id: 'fenderRight', name: 'Højre forskærm', file: 'fenderRight.png', zIndex: 21, x: 53, y: 41, width: 10, height: 25 },
   { id: 'roofEdgeFrontLeft', name: 'Højre tagstolpe', file: 'roofEdgeFront.png', zIndex: 20, x: 22, y: 19, width: 35, height: 23 },
 
-  { id: 'frontBumper', name: 'Forreste kofanger', file: 'bumperFront.png', zIndex: 30, x: 59, y: 54, width: 23, height: 27 },
-  { id: 'rearBumper', name: 'Bageste kofanger', file: 'bumperRear.png', zIndex: 30, x: 19, y: 45, width: 4, height: 16 },
+  { id: 'frontBumper', name: 'Forkofanger', file: 'bumperFront.png', zIndex: 30, x: 59, y: 54, width: 23, height: 27 },
+  { id: 'rearBumper', name: 'Bagkofanger', file: 'bumperRear.png', zIndex: 30, x: 19, y: 45, width: 4, height: 16 },
 
   { id: 'doorFrontRight', name: 'Højre fordør', file: 'doorFrontRight.png', zIndex: 30, x: 41, y: 39, width: 13, height: 33 },
   { id: 'doorRearRight', name: 'Højre sidedør', file: 'doorRearRight.png', zIndex: 30, x: 29.5, y: 36.5, width: 12, height: 31 },
 
   { id: 'wheelFrontRight', name: 'Højre forhjul', file: 'wheelFrontRight.png', zIndex: 35, x: 52, y: 62, width: 9, height: 23 },
   { id: 'wheelRearRight', name: 'Højre baghjul', file: 'wheelRearRight.png', zIndex: 35, x: 23, y: 50, width: 5, height: 17 },
-  { id: 'bonnet', name: 'Motorhjelm', file: 'bonnet.png', zIndex: 20, x: 56, y: 37, width: 24, height: 19 },
+  { id: 'bonnet', name: 'Forklap', file: 'bonnet.png', zIndex: 20, x: 56, y: 37, width: 24, height: 19 },
   { id: 'panelRight', name: 'Højre panel', file: 'panelRight.png', zIndex: 35, x: 28.5, y: 61.5, width: 23, height: 12 },
   { id: 'windowRearRight', name: 'Højre bagrude', file: 'windowRearRight.png', zIndex: 35, x: 22, y: 20, width: 10, height: 17 },
   { id: 'lightRearRight', name: 'Højre baglygte', file: 'lightRearRight.png', zIndex: 35, x: 19.5, y: 40, width: 1, height: 7 },
@@ -63,8 +63,8 @@ rearLeft: [
   { id: 'hood', name: 'Tag', file: 'hood.png', zIndex: 10, x: 31, y: 19, width: 46, height: 4 },
 
   // Bagkofanger
-  { id: 'rearBumper', name: 'Bageste kofanger', file: 'bumperRear.png', zIndex: 30, x: 55.5, y: 60, width: 25, height: 17 },
-  { id: 'frontBumper', name: 'Forreste kofanger', file: 'bumperFront.png', zIndex: 30, x: 19.5, y: 46, width: 1, height: 14 },
+  { id: 'rearBumper', name: 'Bagkofanger', file: 'bumperRear.png', zIndex: 30, x: 55.5, y: 60, width: 25, height: 17 },
+  { id: 'frontBumper', name: 'Forkofanger', file: 'bumperFront.png', zIndex: 30, x: 19.5, y: 46, width: 1, height: 14 },
 
   // Døre
   { id: 'doorFrontLeft', name: 'Venstre fordør', file: 'doorFrontLeft.png', zIndex: 40, x: 24, y: 37, width: 11, height: 28 },
@@ -102,8 +102,8 @@ rearRight: [
   { id: 'hood', name: 'Tag', file: 'hood.png', zIndex: 10, x: 22, y: 19, width: 46, height: 4 },
 
   // Bagkofanger
-  { id: 'rearBumper', name: 'Bageste kofanger', file: 'bumperRear.png', zIndex: 30, x: 19, y: 59, width: 26, height: 18 },
-  { id: 'frontBumper', name: 'Forreste kofanger', file: 'bumperFront.png', zIndex: 30, x: 79.5, y: 46, width: 1, height: 14 },
+  { id: 'rearBumper', name: 'Bagkofanger', file: 'bumperRear.png', zIndex: 30, x: 19, y: 59, width: 26, height: 18 },
+  { id: 'frontBumper', name: 'Forkofanger', file: 'bumperFront.png', zIndex: 30, x: 79.5, y: 46, width: 1, height: 14 },
 
   // Døre
   { id: 'doorFrontRight', name: 'Højre fordør', file: 'doorFrontRight.png', zIndex: 40, x: 65, y: 37, width: 11, height: 28 },
