@@ -11,7 +11,7 @@ const Button = forwardRef(({
   ...props 
 }, ref) => {
   const baseClasses = 
-      'inline-flex items-center justify-center font-medium rounded-lg transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-70 active:scale-[0.98] cursor-pointer'
+      'inline-flex items-center justify-center font-medium rounded-lg transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:cursor-not-allowed active:scale-[0.98] cursor-pointer'
   
   const variants = {
     primary: 'bg-primary-600 hover:bg-primary-700 focus:ring-primary-500 text-white',

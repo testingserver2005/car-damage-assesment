@@ -185,7 +185,7 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
                     </div>
                     <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
                       <div className="bg-white rounded-lg p-3">
-                        <p className="text-sm text-gray-600">Lave</p>
+                        <p className="text-sm text-gray-600">Mærke</p>
                         <p className="font-semibold text-gray-900">{carInfo.make}</p>
                       </div>
                       <div className="bg-white rounded-lg p-3">

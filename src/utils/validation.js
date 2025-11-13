@@ -45,6 +45,6 @@ export const damageAssessmentSchema = yup.object({
   images: yup
     .array()
     .of(yup.mixed())
-    .min(1, 'Vær venligst sød og upload mindst en billed.')
+    .min(1, 'Tilføj minimum 1 billede.')
     .max(10, 'Maximum 10 images allowed')
 })

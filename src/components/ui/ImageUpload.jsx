@@ -75,11 +75,11 @@ const ImageUpload = ({
       </label>
 
       {/* Upload Area */}
-      <label 
+      {/* <label 
               htmlFor="image-upload" 
               className="text-primary-600 cursor-pointer hover:text-primary-700"
-            >
-      <div
+            > */}
+      {/* <div
         className={cn(
           'border-2 border-dashed rounded-lg p-6 text-center transition-colors',
           dragOver ? 'border-primary-400 bg-primary-50' : 'border-gray-300',
@@ -98,6 +98,7 @@ const ImageUpload = ({
           id="image-upload"
         />
         
+        
         <div className="flex flex-col items-center">
           <Upload className="h-12 w-12 text-gray-400 mb-4" />
           <p className="text-sm text-gray-600 mb-2">
@@ -109,8 +110,38 @@ const ImageUpload = ({
             PNG, JPG, GIF op til 10 MB hver  (max {maxImages} billeder)
           </p>
         </div>
-      </div>
-                  </label>
+      </div> */}
+
+      <div
+  className={cn(
+    'border-2 border-dashed rounded-lg p-6 text-center transition-colors',
+    dragOver ? 'border-primary-400 bg-primary-50' : 'border-gray-300',
+    error && 'border-red-300'
+  )}
+  onDragOver={handleDragOver}
+  onDragLeave={handleDragLeave}
+  onDrop={handleDrop}
+>
+  <label className="cursor-pointer flex flex-col items-center">
+    <Upload className="h-12 w-12 text-gray-400 mb-4" />
+    <p className="text-sm text-gray-600 mb-2">
+      Træk og slip billeder her, eller <span className="text-primary-600 underline">gennemse filer</span>
+    </p>
+    <p className="text-xs text-gray-500">
+      PNG, JPG, GIF op til 10 MB hver (max {maxImages} billeder)
+    </p>
+
+    <input
+      type="file"
+      multiple
+      accept="image/*"
+      onChange={handleFileSelect}
+      className="hidden"
+    />
+  </label>
+</div>
+
+                  {/* </label> */}
 
 
       {error && (
