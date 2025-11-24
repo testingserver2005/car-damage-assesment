@@ -191,7 +191,7 @@ const CarViewer2D = ({
       <div className="p-4 bg-white border-b">
         <div className="flex items-center justify-between flex-col md:flex-row gap-4">
           <div>
-            <h3 className="text-lg font-semibold text-gray-900">Vurdering af bilskader</h3>
+            <h3 className="text-lg font-semibold text-gray-900">Marker beskadiget område</h3>
             <p className="text-sm text-gray-600 mt-1">
               Klik på bildele for at markere skader. Drej for at se dem fra forskellige vinkler.
             </p>

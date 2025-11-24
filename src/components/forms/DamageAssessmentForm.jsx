@@ -170,9 +170,9 @@ const DamageAssessmentForm = ({ onSubmit, onBack,/* userDetails */ }) => {
     <div className="w-full max-w-6xl mx-auto space-y-6 my-5">
       <Card>
         <CardHeader>
-          <CardTitle>Trin 2: Skadesvurdering</CardTitle>
+          <CardTitle>Trin 2: Skadesoplysninger</CardTitle>
           <CardDescription>
-            Vælg beskadigede områder på 3D-modellen, angiv alvorligheden, og upload billeder af skaden.
+            Vælg mellem bil eller varevogn. Marker beskadigede område på bilen og upload billeder af skaden.
           </CardDescription>
         </CardHeader>
       </Card>
@@ -380,7 +380,7 @@ const DamageAssessmentForm = ({ onSubmit, onBack,/* userDetails */ }) => {
               animation: "spin 1s linear infinite",
               margin: "0 auto 10px",
             }}></div>
-            <p style={{ color: "#333" }}>At submitte dit rapport...</p>
+            <p style={{ color: "#333" }}>Uploader information</p>
           </div>
 
           <style>{`

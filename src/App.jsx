@@ -22,13 +22,13 @@ const STEPS = {
 const STEPS_CONFIG = [
   {
     key: STEPS.USER_DETAILS,
-    name: "Personlige oplysninger",
+    name: "Personlige-oplysninger",
     Icon: (props) => <FileText {...props} />,
     isCompleted: (state) => !!state.userDetails,
   },
   {
     key: STEPS.DAMAGE_ASSESSMENT,
-    name: "Skades oplysninger",
+    name: "Skades-oplysninger",
     Icon: (props) => <Car {...props} />,
     // This step is only "complete" when the final result is in
     isCompleted: (state) => !!state.assessmentResult,
@@ -81,7 +81,7 @@ function ProgressStepper({ config, currentStep, appState }) {
                       )}
                     </div>
                     <span
-                      className={clsx("text-sm text-center leading-tight whitespace-pre-line break-words", {
+                      className={clsx("text-sm md:text-left text-center leading-tight whitespace-pre-line break-words", {
                         "text-orange-600": active,
                         "text-gray-900": completed,
                         "text-gray-500": !completed && !active,
@@ -205,7 +205,7 @@ function App() {
         setAssessmentResult(finalData);
         setCurrentStep(STEPS.SUCCESS);
       } else {
-        toast.error("Failed to submit assessment. Please try again.");
+        toast.error("Din skadesanmeldese kunne fremsendes. Prøv venligst igen");
         setCurrentStep(STEPS.SUCCESS);
 
       }
