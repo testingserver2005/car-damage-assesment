@@ -321,7 +321,7 @@ Klik på varevognsdele for at markere skader. Drej for at se fra forskellige vin
               return (
                 <span
                   key={partId}
-                  className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-red-100 text-red-800"
+                  className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-[#FB5C14]/15 text-[#FB5C14]"
                 >
                   {part?.name || partId}
                 </span>
@@ -330,7 +330,7 @@ Klik på varevognsdele for at markere skader. Drej for at se fra forskellige vin
             {selectedAreas.filter(area => !selectedParts.has(area)).map((areaId) => (
               <span
                 key={areaId}
-                className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-red-100 text-red-800"
+                className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-[#FB5C14]/15 text-[#FB5C14]"
               >
                 {areaId}
               </span>
