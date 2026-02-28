@@ -145,7 +145,7 @@ const ImageUpload = ({
 
 
       {error && (
-        <p className="mt-1 text-sm text-red-600">
+        <p className="mt-1 text-sm text-[#FB5C14]">
           {error}
         </p>
       )}

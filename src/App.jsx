@@ -82,7 +82,7 @@ function ProgressStepper({ config, currentStep, appState }) {
                     </div>
                     <span
                       className={clsx("text-sm md:text-left text-center leading-tight whitespace-pre-line break-words", {
-                        "text-orange-600": active,
+                        "text-[#fb5c14]": active,
                         "text-gray-900": completed,
                         "text-gray-500": !completed && !active,
                       })}
@@ -388,7 +388,7 @@ function App() {
         {/* Footer */}
         <footer className="bg-white border-t">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6 text-center font-bold text-sm text-gray-500">
-            © 2025 QuickRepair.dk –
+            © 2026 QuickRepair.dk –
             Skadesanmeldelse
           </div>
         </footer>

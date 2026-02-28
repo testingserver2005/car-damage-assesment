@@ -86,7 +86,7 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
   return (
     <div className="bg-gradient-to-br from-orange-50 via-white to-amber-50 py-8 px-4">
       <div className="max-w-4xl mx-auto">
-       
+
 
         <Card className="w-full max-w-4xl mx-auto border-orange-200">
           <CardHeader>
@@ -95,7 +95,7 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
                 <Car className="w-6 h-6 text-orange-600" />
               </div>
               <div>
-                <CardTitle className="text-lg sm:text-xl text-orange-900 font-semibold">Personlige oplysninger og køretøjsoplysninger</CardTitle>
+                <CardTitle className="text-lg sm:text-xl text-[#fb5c14] font-semibold">Personlige oplysninger og køretøjsoplysninger</CardTitle>
                 <CardDescription className="text-sm sm:text-base text-gray-600">
                   Angiv venligst dine kontaktoplysninger og køretøjsoplysninger for at komme i gang med din skadesanmeldelse.
                 </CardDescription>
@@ -213,14 +213,17 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
                       value="insurance"
                       className="sr-only peer"
                     />
-                    <div className="p-6 border-2 rounded-xl
+                    <div className="
+    p-6 border-2 rounded-xl
     transition-colors duration-300
-    peer-checked:border-orange-500 
-    peer-checked:bg-orange-50 
-    peer-checked:text-orange-700
-    hover:bg-orange-100 hover:text-orange-700 
-    hover:border-orange-300
-    group-hover:shadow-md">
+    peer-checked:border-[#FB5C14]
+    peer-checked:bg-[#FB5C14]/10
+    peer-checked:text-[#FB5C14]
+    hover:bg-[#FB5C14]/20
+    hover:text-[#FB5C14]
+    hover:border-[#FB5C14]/60
+    group-hover:shadow-md
+  ">
                       <div className="flex items-start space-x-4">
                         <div className="flex-shrink-0 mt-1 hidden">
                           <div className="w-5 h-5 border-2 border-gray-300 rounded-full peer-checked:border-orange-500 peer-checked:bg-orange-50 relative flex items-center justify-center">
@@ -230,13 +233,13 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
                         <div className="flex-1">
                           <div className="flex items-center space-x-2 mb-2">
                             <Shield className="w-5 h-5 transition-colors duration-300 
-            group-hover:text-orange-700
+            group-hover:text-orange-400
             text-orange-600 
             peer-checked:text-white" />
                             <h4 className="text-lg font-semibold ">Forsikringsbetaling</h4>
                           </div>
                           <p className=" leading-relaxed ">
-Vi hjælper med dokumentation og kontakt til dit forsikringsselskab. Du betaler kun eventuel selvrisiko, hvis skaden godkendes.                         </p>
+                            Vi hjælper med dokumentation og kontakt til dit forsikringsselskab. Du betaler kun eventuel selvrisiko, hvis skaden godkendes.                         </p>
                           <div className="mt-3 flex items-center space-x-2 text-sm text-green-700 ">
                             <CheckCircle className="w-4 h-4 transition-colors duration-300
             text-green-600
@@ -256,14 +259,19 @@ Vi hjælper med dokumentation og kontakt til dit forsikringsselskab. Du betaler 
                       value="self-paid"
                       className="sr-only peer"
                     />
-                    <div className="p-6 border-2 rounded-xl
+                    <div className="
+    p-6 border-2 rounded-xl
     transition-colors duration-300
-    peer-checked:border-orange-500 
-    peer-checked:bg-orange-50 
-    peer-checked:text-orange-700
-    hover:bg-orange-100 hover:text-orange-700
-    hover:border-orange-500
-    group-hover:shadow-md">
+    peer-checked:border-[#FB5C14]
+    peer-checked:bg-[#FB5C14]/10
+    peer-checked:text-[#FB5C14]
+    peer-checked:font-medium
+    hover:bg-[#FB5C14]/20
+    hover:text-[#FB5C14]
+    hover:border-[#FB5C14]
+    hover:font-medium
+    group-hover:shadow-md
+  ">
                       <div className="flex items-start space-x-4">
                         <div className="flex-shrink-0 mt-1 hidden">
                           <div className="w-5 h-5 border-2 border-gray-300 rounded-full peer-checked:border-orange-500 peer-checked:bg-orange-50 relative flex items-center justify-center">
@@ -278,11 +286,11 @@ Vi hjælper med dokumentation og kontakt til dit forsikringsselskab. Du betaler 
             peer-checked:text-white" />
                             <h4 className="text-lg font-semibold ">Selvbetaling</h4>
                           </div>
-                          <p className="leading-relaxed ">
-Vælg denne løsning, hvis skaden ikke er dækket af dit forsikringsselskab, eller hvis du foretrækker selvbetaling. Vi udarbejder et tilbud på reparationen, så du får et klart overblik over de samlede omkostninger. Har du en høj selvrisiko kan det være en fordel med selvbetaling for mindre skader.                        </p>
+                          <p className="leading-relaxed font-normal">
+                            Vælg denne løsning, hvis skaden ikke er dækket af dit forsikringsselskab, eller hvis du foretrækker selvbetaling. Vi udarbejder et tilbud på reparationen, så du får et klart overblik over de samlede omkostninger. Har du en høj selvrisiko kan det være en fordel med selvbetaling for mindre skader.                        </p>
                           <div className="mt-3 flex items-center space-x-2 text-sm text-green-700">
                             <CheckCircle className="w-4 h-4 transition-colors duration-300
-            text-green-600
+            text-green-400
             group-hover:text-green-700
             peer-checked:text-white" />
                             <span>Fuldt overblik over samlet omkostninger</span>
