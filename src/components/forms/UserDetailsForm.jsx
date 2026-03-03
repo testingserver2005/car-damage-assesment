@@ -216,24 +216,22 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
                     <div className="
                     hover-transform
     p-6 border-2 rounded-xl
+      hover:text-white
     transition-colors duration-300
     peer-checked:border-[#FB5C14]
-    peer-checked:bg-[#FB5C14]/10
-    peer-checked:text-[#FB5C14]
+    peer-checked:bg-[#FB5C14]
+    peer-checked:text-white
     
   ">
                       <div className="flex items-start space-x-4">
                         <div className="flex-shrink-0 mt-1 hidden">
-                          <div className="w-5 h-5 border-2 border-gray-300 rounded-full peer-checked:border-orange-500 peer-checked:bg-orange-50 relative flex items-center justify-center">
+                          <div className="w-5 h-5 border-2 border-gray-300 rounded-full peer-checked:border-orange-500 peer-checked:bg-white relative flex items-center justify-center">
                             <div className="w-2 h-2 bg-white rounded-full opacity-0 peer-checked:opacity-100 transition-opacity"></div>
                           </div>
                         </div>
                         <div className="flex-1">
                           <div className="flex items-center space-x-2 mb-2">
-                            <Shield className="w-5 h-5 transition-colors duration-300 
-            group-hover:text-orange-200
-            text-orange-600 
-            peer-checked:text-white" />
+                            <Shield className="w-5 h-5 transition-colors duration-300" />
                             <h4 className="text-lg font-semibold uppercase ">Forsikringsbetaling</h4>
                           </div>
                           <p className=" leading-relaxed ">
@@ -259,27 +257,26 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
                     />
                     <div className="
                     hover-transform
+                      hover:text-white
     p-6 border-2 rounded-xl
     transition-colors duration-300
     peer-checked:border-[#FB5C14]
-    peer-checked:bg-[#FB5C14]/10
-    peer-checked:text-[#FB5C14]
+    peer-checked:bg-[#FB5C14]
+    peer-checked:text-white
     peer-checked:font-medium
 
     group-hover:shadow-md
   ">
                       <div className="flex items-start space-x-4">
                         <div className="flex-shrink-0 mt-1 hidden">
-                          <div className="w-5 h-5 border-2 border-gray-300 rounded-full peer-checked:border-orange-500 peer-checked:bg-orange-50 relative flex items-center justify-center">
+                          <div className="w-5 h-5 border-2 border-gray-300 rounded-full  peer-checked:bg-[#FB5C14] relative flex items-center justify-center">
                             <div className="w-2 h-2 bg-white rounded-full opacity-0 peer-checked:opacity-100 transition-opacity"></div>
                           </div>
                         </div>
                         <div className="flex-1">
                           <div className="flex items-center space-x-2 mb-2">
-                            <CreditCard className="w-5 h-5 transition-colors duration-300 
-            text-orange-600 
-            group-hover:text-orange-700 
-            peer-checked:text-white" />
+                            <CreditCard className="w-5 h-5 text-current transition-colors duration-300 
+            " />
                             <h4 className="text-lg font-semibold uppercase">Selvbetaling</h4>
                           </div>
                           <p className="leading-relaxed font-normal">

@@ -16,7 +16,7 @@ body {
 h1, h2, h3, h4, h5, h6, button {
   font-family: 'VagRounded', sans-serif;
 }
-.hover-transform {
+/* .hover-transform {
   background: linear-gradient(#FB5C14 0 0) no-repeat
     calc(200% - var(--p, 0%)) 100% / 200% var(--p, 0.08em);
   transition: 0.4s var(--t, 0s),
@@ -27,6 +27,32 @@ h1, h2, h3, h4, h5, h6, button {
   --p: 100%;
   --t: 0.3s;
   color: #fff;
+} */
+
+.hover-transform {
+  position: relative;
+  overflow: hidden;
+}
+
+.hover-transform::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #FB5C14;
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.3s ease;
+  z-index: 0;
+
+}
+
+.hover-transform:hover::before {
+  transform: scaleY(1);
+}
+
+.hover-transform > * {
+  position: relative;
+  z-index: 1;
 }
 /* Gradient Background */
 .bg-gradient-to-br {

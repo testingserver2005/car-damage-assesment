@@ -286,7 +286,7 @@ const SuccessPage = ({ assessmentData, onStartNew }) => {
         </div>
 
         {/* Title */}
-        <h2 className="text-2xl font-bold text-gray-800">
+        <h2 className="text-2xl font-bold uppercase text-gray-800">
           Vurdering indsendt med succes
         </h2>
         <p className="mt-3 text-gray-600">
