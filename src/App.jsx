@@ -341,7 +341,7 @@ function App() {
 
         {/* Main Content */}
         <main className="flex-1">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
             {currentStep === STEPS.USER_DETAILS && (
               <UserDetailsForm
                 onNext={handleUserDetailsNext}

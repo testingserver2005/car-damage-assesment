@@ -85,10 +85,10 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
 
   return (
     <div className="bg-gradient-to-br from-orange-50 via-white to-amber-50 py-8 px-4">
-      <div className="max-w-4xl mx-auto">
+      <div className=" mx-auto">
 
 
-        <Card className="w-full max-w-4xl mx-auto border-orange-200">
+        <Card className="w-full mx-auto border-orange-200">
           <CardHeader>
             <div className="flex items-center space-x-3">
               <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center shrink-0 justify-center">
@@ -104,7 +104,7 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
           </CardHeader>
 
           <CardContent>
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-8 max-w-4xl mx-auto">
               {/* Personal Information Section */}
               <div className="space-y-6">
                 <div className="flex items-center space-x-2 pb-2 border-b border-gray-100">
@@ -166,7 +166,7 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
                     onChange={handleCarPlateChange}
                     error={errors.carNumberPlate?.message}
                     placeholder="AB12345"
-                    className="uppercase font-mono text-lg tracking-wider"
+                    // className="uppercase font-mono text-lg tracking-wider"
                   />
                   {fetchingCarInfo && (
                     <div className="absolute right-4 top-10 flex items-center space-x-2">
