@@ -95,8 +95,8 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
                 <Car className="w-6 h-6 text-orange-600" />
               </div>
               <div>
-                <CardTitle className="text-lg sm:text-xl text-[#fb5c14] font-semibold">Personlige oplysninger og køretøjsoplysninger</CardTitle>
-                <CardDescription className="text-sm sm:text-base text-gray-600">
+                <CardTitle className="text-lg sm:text-xl text-[#fb5c14] font-semibold uppercase">Personlige oplysninger og køretøjsoplysninger</CardTitle>
+                <CardDescription className="text-sm sm:text-base text-black-600">
                   Angiv venligst dine kontaktoplysninger og køretøjsoplysninger for at komme i gang med din skadesanmeldelse.
                 </CardDescription>
               </div>
@@ -109,7 +109,7 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
               <div className="space-y-6">
                 <div className="flex items-center space-x-2 pb-2 border-b border-gray-100">
                   <User className="w-5 h-5 text-gray-600" />
-                  <h3 className="text-lg font-semibold text-gray-900">Personlige oplysninger</h3>
+                  <h3 className="text-lg font-semibold text-gray-900 uppercase">Personlige oplysninger</h3>
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -155,7 +155,7 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
               <div className="space-y-6">
                 <div className="flex items-center space-x-2 pb-2 border-b border-gray-100">
                   <Car className="w-5 h-5 text-gray-600" />
-                  <h3 className="text-lg font-semibold text-gray-900">Køretøjsoplysninger</h3>
+                  <h3 className="text-lg font-semibold text-gray-900 uppercase">Køretøjsoplysninger</h3>
                 </div>
 
                 <div className="relative max-w-md">
@@ -202,7 +202,7 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
               <div className="space-y-6">
                 <div className="flex items-center space-x-2 pb-2 border-b border-gray-100">
                   <Shield className="w-5 h-5 text-gray-600" />
-                  <h3 className="text-lg font-semibold text-gray-900">Servicetype</h3>
+                  <h3 className="text-lg font-semibold text-gray-900 uppercase">Servicetype</h3>
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -236,7 +236,7 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
             group-hover:text-orange-400
             text-orange-600 
             peer-checked:text-white" />
-                            <h4 className="text-lg font-semibold ">Forsikringsbetaling</h4>
+                            <h4 className="text-lg font-semibold uppercase ">Forsikringsbetaling</h4>
                           </div>
                           <p className=" leading-relaxed ">
                             Vi hjælper med dokumentation og kontakt til dit forsikringsselskab. Du betaler kun eventuel selvrisiko, hvis skaden godkendes.                         </p>
@@ -284,7 +284,7 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
             text-orange-600 
             group-hover:text-orange-700 
             peer-checked:text-white" />
-                            <h4 className="text-lg font-semibold ">Selvbetaling</h4>
+                            <h4 className="text-lg font-semibold uppercase">Selvbetaling</h4>
                           </div>
                           <p className="leading-relaxed font-normal">
                             Vælg denne løsning, hvis skaden ikke er dækket af dit forsikringsselskab, eller hvis du foretrækker selvbetaling. Vi udarbejder et tilbud på reparationen, så du får et klart overblik over de samlede omkostninger. Har du en høj selvrisiko kan det være en fordel med selvbetaling for mindre skader.                        </p>
@@ -313,15 +313,30 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
 
               {/* Submit Button */}
               <div className="flex justify-center sm:justify-end pt-6 sm:pt-8 border-t border-gray-100">
-                <Button
-                  type="submit"
-                  loading={loading}
-                  disabled={!isValid}
-                  size="lg"
-                  className="w-full sm:w-auto min-w-[160px] text-[#FB5C14] border border-[#FB5C14] hover:bg-[#FB5C14] hover:text-white transition"
-                >
-                  Fortsæt til næste trin
-                </Button>
+ <Button
+  type="submit"
+  loading={loading}
+  disabled={!isValid}
+  size="lg"
+  className="
+    w-full sm:w-auto min-w-[160px]
+    bg-[#FB5C14] !bg-[#FB5C14] 
+    text-white !text-white
+    text-[16px]
+    font-semibold
+    uppercase
+    leading-[1em]
+    tracking-[1.3px]
+    shadow-[0px_0px_10px_-3px_rgba(0,0,0,1)]
+    rounded-[10px]
+    px-[40px] py-[20px]
+    transition-transform
+    transform
+    hover:scale-105 !hover:bg-[#FB5C14] !hover:text-white
+  "
+>
+  Fortsæt til næste trin
+</Button>
               </div>
             </form>
           </CardContent>

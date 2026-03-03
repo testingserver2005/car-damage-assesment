@@ -70,7 +70,7 @@ const ImageUpload = ({
 
   return (
     <div className={cn('w-full', className)}>
-      <label className="block text-sm font-medium text-gray-700 mb-2">
+      <label className="block text-sm font-medium uppercase text-gray-700 mb-2">
         {label}
       </label>
 

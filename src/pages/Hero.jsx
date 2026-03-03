@@ -17,14 +17,14 @@ function Hero() {
         </div>
 
         {/* Heading */}
-        <h1 className="text-2xl sm:text-4xl md:text-5xl font-semibold text-gray-900">
-          Skadesanmeldelse
-        </h1>
+      <h1 className="text-2xl sm:text-4xl md:text-5xl font-semibold uppercase text-[#fb5c14] [text-shadow:0px_0px_10px_rgba(0,0,0,0.3)]">
+  Skadesanmeldelse
+</h1>
 
         {/* Optional small subtitle (keep OR remove) */}
-        <p className="text-gray-500 text-sm sm:text-base max-w-xl mx-auto">
-          Indtast registreringsnummer og anmeld din skade hurtigt og nemt.
-        </p>
+        <p className="text-black-500 text-base sm:text-2xl font-bold uppercase max-w-xl mx-auto">
+  Indtast registreringsnummer og anmeld din skade hurtigt og nemt.
+</p>
 
         {/* Scroll indicator */}
         <div className="flex justify-center pt-4">

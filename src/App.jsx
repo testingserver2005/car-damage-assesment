@@ -70,7 +70,7 @@ function ProgressStepper({ config, currentStep, appState }) {
                         {
                           "bg-orange-500 border-orange-500 text-white": completed,
                           "border-orange-500 text-orange-600": active,
-                          "border-gray-300 text-gray-400": !completed && !active,
+                          "border-black-300 text-gray-400": !completed && !active,
                         }
                       )}
                     >
@@ -387,7 +387,7 @@ function App() {
 
         {/* Footer */}
         <footer className="bg-white border-t">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6 text-center font-bold text-sm text-gray-500">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6 text-center font-bold text-sm text-black-500">
             © 2026 QuickRepair.dk –
             Skadesanmeldelse
           </div>

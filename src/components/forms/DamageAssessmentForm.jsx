@@ -311,26 +311,55 @@ const DamageAssessmentForm = ({ onSubmit, onBack,/* userDetails */ }) => {
 
       {/* Navigation Buttons */}
       <CardFooter className="flex justify-between items-center gap-4">
-        <Button
-          type="button"
-          variant="secondary"
-          onClick={onBack}
-          disabled={loading}
-          className="w-full sm:w-auto text-sm"
-        >
-          Tilbage
-        </Button>
+  {/* Back Button */}
+ <Button
+  type="button"
+  onClick={onBack}
+  disabled={loading}
+  className="
+    w-full sm:w-auto min-w-[160px]
+    bg-[#FB5C14] !bg-[#FB5C14]
+    text-white !text-white
+    text-[16px]
+    font-semibold
+    uppercase
+    leading-[1em]
+    tracking-[1.3px]
+    shadow-[0px_0px_10px_-3px_rgba(0,0,0,1)]
+    rounded-[10px]
+    px-[40px] py-[20px]
+    transition-transform
+    transform
+    hover:scale-105 !hover:bg-[#FB5C14] !hover:text-white
+  "
+>
+  Tilbage
+</Button>
 
-        <Button
-          onClick={handleSubmit(handleFormSubmit)}
-          loading={loading}
-          size={'sm'}
-          disabled={!isValid || fields.length === 0 || images.length === 0}
-          className="w-full sm:w-auto text-sm text-[#FB5C14] border border-[#FB5C14] hover:bg-[#FB5C14] hover:text-white"
-        >
-          {loading ? "Sender..." : "Indsend"}
-        </Button>
-      </CardFooter>
+<Button
+  onClick={handleSubmit(handleFormSubmit)}
+  loading={loading}
+  disabled={!isValid || fields.length === 0 || images.length === 0}
+  className="
+    w-full sm:w-auto min-w-[160px]
+    bg-[#FB5C14] !bg-[#FB5C14]
+    text-white !text-white
+    text-[16px]
+    font-semibold
+    uppercase
+    leading-[1em]
+    tracking-[1.3px]
+    shadow-[0px_0px_10px_-3px_rgba(0,0,0,1)]
+    rounded-[10px]
+    px-[40px] py-[20px]
+    transition-transform
+    transform
+    hover:scale-105 !hover:bg-[#FB5C14] !hover:text-white
+  "
+>
+  {loading ? "Sender..." : "Indsend"}
+</Button>
+</CardFooter>
 
 
       {/* Summary */}
