@@ -202,7 +202,7 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
               <div className="space-y-6">
                 <div className="flex items-center space-x-2 pb-2 border-b border-gray-100">
                   <Shield className="w-5 h-5 text-gray-600" />
-                  <h3 className="text-lg font-semibold text-gray-900 uppercase">Servicetype</h3>
+                  <h3 className="text-lg font text-gray-900 uppercase">Servicetype</h3>
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -214,15 +214,13 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
                       className="sr-only peer"
                     />
                     <div className="
+                    hover-transform
     p-6 border-2 rounded-xl
     transition-colors duration-300
     peer-checked:border-[#FB5C14]
     peer-checked:bg-[#FB5C14]/10
     peer-checked:text-[#FB5C14]
-    hover:bg-[#FB5C14]/20
-    hover:text-[#FB5C14]
-    hover:border-[#FB5C14]/60
-    group-hover:shadow-md
+    
   ">
                       <div className="flex items-start space-x-4">
                         <div className="flex-shrink-0 mt-1 hidden">
@@ -233,18 +231,18 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
                         <div className="flex-1">
                           <div className="flex items-center space-x-2 mb-2">
                             <Shield className="w-5 h-5 transition-colors duration-300 
-            group-hover:text-orange-400
+            group-hover:text-orange-200
             text-orange-600 
             peer-checked:text-white" />
                             <h4 className="text-lg font-semibold uppercase ">Forsikringsbetaling</h4>
                           </div>
                           <p className=" leading-relaxed ">
                             Vi hjælper med dokumentation og kontakt til dit forsikringsselskab. Du betaler kun eventuel selvrisiko, hvis skaden godkendes.                         </p>
-                          <div className="mt-3 flex items-center space-x-2 text-sm text-green-700 ">
-                            <CheckCircle className="w-4 h-4 transition-colors duration-300
+                          <div className="mt-3 flex items-center space-x-2 text-sm transition-colors duration-300
             text-green-600
-            group-hover:text-green-700
-            peer-checked:text-white" />
+            group-hover:text-green-600
+            peer-checked:text-white">
+                            <CheckCircle className="w-4 h-4" />
                             <span>Skaden betales af forsikringen</span>
                           </div>
                         </div>
@@ -260,16 +258,14 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
                       className="sr-only peer"
                     />
                     <div className="
+                    hover-transform
     p-6 border-2 rounded-xl
     transition-colors duration-300
     peer-checked:border-[#FB5C14]
     peer-checked:bg-[#FB5C14]/10
     peer-checked:text-[#FB5C14]
     peer-checked:font-medium
-    hover:bg-[#FB5C14]/20
-    hover:text-[#FB5C14]
-    hover:border-[#FB5C14]
-    hover:font-medium
+
     group-hover:shadow-md
   ">
                       <div className="flex items-start space-x-4">
@@ -288,11 +284,11 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
                           </div>
                           <p className="leading-relaxed font-normal">
                             Vælg denne løsning, hvis skaden ikke er dækket af dit forsikringsselskab, eller hvis du foretrækker selvbetaling. Vi udarbejder et tilbud på reparationen, så du får et klart overblik over de samlede omkostninger. Har du en høj selvrisiko kan det være en fordel med selvbetaling for mindre skader.                        </p>
-                          <div className="mt-3 flex items-center space-x-2 text-sm text-green-700">
-                            <CheckCircle className="w-4 h-4 transition-colors duration-300
-            text-green-400
-            group-hover:text-green-700
-            peer-checked:text-white" />
+                          <div className="mt-3 flex items-center space-x-2 text-sm transition-colors duration-300
+            text-green-600
+            group-hover:text-green-500
+            peer-checked:text-white">
+                            <CheckCircle className="w-4 h-4" />
                             <span>Fuldt overblik over samlet omkostninger</span>
                           </div>
                         </div>
