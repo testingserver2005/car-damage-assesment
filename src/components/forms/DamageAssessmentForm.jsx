@@ -281,23 +281,31 @@ const DamageAssessmentForm = ({ onSubmit, onBack,/* userDetails */ }) => {
       {/* Image Upload Section */}
       <Card>
         <CardHeader>
-          <CardTitle className="text-lg">Upload billeder af skader</CardTitle>
+          <CardTitle className="text-lg">Upload billeder af skaden</CardTitle>
           {/* <CardDescription> */}
-            <div className="text-sm text-gray-600 mt-2">
-              <p className="flex items-center gap-2 mb-2 font-bold">
+          <div className="text-sm text-gray-600 mt-2">
+            
+            <p className="flex items-center gap-2 mb-2 font-bold">
 
-              Tips til gode billeder af skaden: 
-              </p>
 
-    <ul className="list-decimal list-inside space-y-1">
-      <li>Tag billeder i dagslys.</li>
-      <li>Rengør eventuelt det skadede område.</li>
-      <li>Fotografer hele bilen fra flere vinkler.</li>
-      <li>Zoom ind på skaden – tæt og i fokus.</li>
-      <li>Undgå genskin og slørede billeder.</li>
-    </ul>
-  </div>
-          
+              Hvis skaden skal dækkes af din forsikring, har forsikringsselskaberne brug for
+              dokumentation for bilens aktuelle kilometertal. Derfor er det vigtigt, at du også tager et billede af
+              kilometertælleren og uploader det sammen med billederne af skaden. Det hjælper med at sikre en
+              hurtigere og mere korrekt behandling af din sag.
+            </p>
+            <p className="flex items-center gap-2 mb-2 font-bold">
+
+              Tips til gode billeder af skaden:
+            </p>
+            <ul className="list-decimal list-inside space-y-1">
+              <li>Tag billeder i dagslys.</li>
+              <li>Rengør eventuelt det skadede område.</li>
+              <li>Fotografer hele bilen fra flere vinkler.</li>
+              <li>Zoom ind på skaden – tæt og i fokus.</li>
+              <li>Undgå genskin og slørede billeder.</li>
+            </ul>
+          </div>
+
           {/* </CardDescription> */}
         </CardHeader>
         <CardContent>
@@ -311,12 +319,12 @@ const DamageAssessmentForm = ({ onSubmit, onBack,/* userDetails */ }) => {
 
       {/* Navigation Buttons */}
       <CardFooter className="flex justify-between items-center gap-4">
-  {/* Back Button */}
- <Button
-  type="button"
-  onClick={onBack}
-  disabled={loading}
-  className="
+        {/* Back Button */}
+        <Button
+          type="button"
+          onClick={onBack}
+          disabled={loading}
+          className="
     w-full sm:w-auto min-w-[160px]
     bg-[#FB5C14] !bg-[#FB5C14]
     text-white !text-white
@@ -332,15 +340,15 @@ const DamageAssessmentForm = ({ onSubmit, onBack,/* userDetails */ }) => {
     transform
     hover:scale-105 !hover:bg-[#FB5C14] !hover:text-white
   "
->
-  Tilbage
-</Button>
+        >
+          Tilbage
+        </Button>
 
-<Button
-  onClick={handleSubmit(handleFormSubmit)}
-  loading={loading}
-  disabled={!isValid || fields.length === 0 || images.length === 0}
-  className="
+        <Button
+          onClick={handleSubmit(handleFormSubmit)}
+          loading={loading}
+          disabled={!isValid || fields.length === 0 || images.length === 0}
+          className="
     w-full sm:w-auto min-w-[160px]
     bg-[#FB5C14] !bg-[#FB5C14]
     text-white !text-white
@@ -356,10 +364,10 @@ const DamageAssessmentForm = ({ onSubmit, onBack,/* userDetails */ }) => {
     transform
     hover:scale-105 !hover:bg-[#FB5C14] !hover:text-white
   "
->
-  {loading ? "Sender..." : "Indsend"}
-</Button>
-</CardFooter>
+        >
+          {loading ? "Sender..." : "Indsend"}
+        </Button>
+      </CardFooter>
 
 
       {/* Summary */}

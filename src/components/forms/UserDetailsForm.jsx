@@ -180,7 +180,7 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
                 {carInfo && (
                   <div className="bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200 rounded-xl p-6">
                     <div className="flex items-center space-x-3 mb-4">
-                      <CheckCircle className="w-6 h-6 text-green-600" />
+                      <CheckCircle className="w-6 h-6 text-green-800" />
                       <h4 className="text-lg font-semibold text-green-800">Køretøjsoplysninger fundet</h4>
                     </div>
                     <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
@@ -237,8 +237,8 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
                           <p className=" leading-relaxed ">
                             Vi hjælper med dokumentation og kontakt til dit forsikringsselskab. Du betaler kun eventuel selvrisiko, hvis skaden godkendes.                         </p>
                           <div className="mt-3 flex items-center space-x-2 text-sm transition-colors duration-300
-            text-green-600
-            group-hover:text-green-600
+            text-green-800
+            group-hover:text-green-800
             peer-checked:text-white">
                             <CheckCircle className="w-4 h-4" />
                             <span>Skaden betales af forsikringen</span>
@@ -282,8 +282,8 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
                           <p className="leading-relaxed font-normal">
                             Vælg denne løsning, hvis skaden ikke er dækket af dit forsikringsselskab, eller hvis du foretrækker selvbetaling. Vi udarbejder et tilbud på reparationen, så du får et klart overblik over de samlede omkostninger. Har du en høj selvrisiko kan det være en fordel med selvbetaling for mindre skader.                        </p>
                           <div className="mt-3 flex items-center space-x-2 text-sm transition-colors duration-300
-            text-green-600
-            group-hover:text-green-500
+            text-green-800
+            group-hover:text-green-800
             peer-checked:text-white">
                             <CheckCircle className="w-4 h-4" />
                             <span>Fuldt overblik over samlet omkostninger</span>
@@ -305,7 +305,7 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
               </div>
 
               {/* Submit Button */}
-              <div className="flex justify-center sm:justify-end pt-6 sm:pt-8 border-t border-gray-100">
+              <div className="flex justify-center sm:justify-center pt-6 sm:pt-8 border-t border-gray-100">
  <Button
   type="submit"
   loading={loading}

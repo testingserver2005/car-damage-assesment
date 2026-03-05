@@ -3,17 +3,19 @@ import { ArrowDown } from "lucide-react";
 
 function Hero() {
   return (
-    <section className="relative flex items-center justify-center py-20 px-4 sm:px-6 md:px-8 bg-white">
+    <section class="relative flex items-center justify-center py-8 md:py-12 px-4 sm:px-6 md:px-8 bg-white">
 
       <div className="max-w-5xl mx-auto text-center space-y-8">
 
         {/* Logo */}
         <div className="flex justify-center">
-          <img
-            src="/logo.png"
-            alt="Company Logo"
-            className="w-40 sm:w-52 md:w-64 object-contain"
-          />
+          <a href="http://quickrepair.dk/" target="_blank" rel="noopener noreferrer">
+    <img
+      src="/logo.png"
+      alt="Company Logo"
+      className="w-40 sm:w-52 md:w-64 object-contain"
+    />
+  </a>
         </div>
 
         {/* Heading */}
@@ -22,9 +24,9 @@ function Hero() {
 </h1>
 
         {/* Optional small subtitle (keep OR remove) */}
-        <p className="text-black-500 text-base sm:text-2xl font-bold uppercase max-w-xl mx-auto">
+        {/* <p className="text-black-500 text-base sm:text-2xl font-bold uppercase max-w-xl mx-auto">
   Indtast registreringsnummer og anmeld din skade hurtigt og nemt.
-</p>
+</p> */}
 
         {/* Scroll indicator */}
         <div className="flex justify-center pt-4">

@@ -13,9 +13,9 @@ const CAR_PARTS = {
   { id: 'mudguardLeft', name: 'Venstre bagskærm', file: 'mudguardLeft.png', zIndex: 22, x: 69, y: 20, width: 7.5, height: 23 },
   { id: 'fenderLeft', name: 'Venstre forskærm', file: 'fenderLeft.png', zIndex: 21, x: 35, y: 31, width: 15, height: 29 },
   { id: 'roofEdgeFrontLeft', name: 'Venstre tagkant foran', file: 'roofEdgeFront.png', zIndex: 35, x: 46, y: 23, width: 12, height: 4, rotate: -38 },
-  { id: 'frontBumper', name: 'Forreste kofanger', file: 'bumperFront.png', zIndex: 30, x: 15, y: 45, width: 26, height: 20 },
+  { id: 'frontBumper', name: 'Forkofanger', file: 'bumperFront.png', zIndex: 30, x: 15, y: 45, width: 26, height: 20 },
   { id: 'roofEdgeRearLeft', name: 'Venstre bageste tagkant', file: 'frontEdgeRear.png', zIndex: 18, x: 57, y: 17, width: 15, height: 4 },
-  { id: 'rearBumper', name: 'Bageste kofanger', file: 'bumperRear.png', zIndex: 30, x: 76, y: 36, width: 2, height: 18 },
+  { id: 'rearBumper', name: 'Bagkofanger', file: 'bumperRear.png', zIndex: 30, x: 76, y: 36, width: 2, height: 18 },
   { id: 'doorFrontLeft', name: 'Venstre fordør', file: 'doorFrontLeft.png', zIndex: 40, x: 49, y: 32, width: 14, height: 27 },
   { id: 'doorRearLeft', name: 'Venstre bagdør', file: 'doorRearLeft.png', zIndex: 30, x: 62, y: 31, width: 10.5, height: 25 },
   { id: 'wheelFrontLeft', name: 'Venstre forhjul', file: 'wheelFrontLeft.png', zIndex: 22, x: 39, y: 48, width: 9, height: 23 },
@@ -37,9 +37,9 @@ frontRight: [
   { id: 'fenderFront', name: 'Højre forskærm', file: 'fenderRight.png', zIndex: 21, x: 50, y: 32, width: 14, height: 27 },
   { id: 'roofEdgeFrontLeft', name: 'Forreste tagkant', file: 'roofEdgeFront.png', zIndex: 35, x: 41, y: 22, width: 13, height: 5, rotate: 34 },
   { id: 'roofEdgeRear', name: 'Bageste tagkant', file: 'roofEdgeRear.png', zIndex: 20, x: 27, y: 17, width: 15, height: 4 },
-  { id: 'frontBumper', name: 'Forreste kofanger', file: 'bumperFront.png', zIndex: 30, x: 59, y: 46, width: 27, height: 19 },
+  { id: 'frontBumper', name: 'Forkofanger', file: 'bumperFront.png', zIndex: 30, x: 59, y: 46, width: 27, height: 19 },
   { id: 'frontEdgeRear', name: 'Bageste forkant', file: 'frontEdgeRear.png', zIndex: 18, x: 27, y: 12, width: 17, height: 6 },
-  { id: 'rearBumper', name: 'Bageste kofanger', file: 'bumperRear.png', zIndex: 30, x: 22, y: 36, width: 2, height: 18 },
+  { id: 'rearBumper', name: 'Bagkofanger', file: 'bumperRear.png', zIndex: 30, x: 22, y: 36, width: 2, height: 18 },
   { id: 'doorFrontRight', name: 'Højre fordør', file: 'doorFrontRight.png', zIndex: 40, x: 37, y: 32, width: 14, height: 27 },
   { id: 'doorRearRight', name: 'Højre bagdør', file: 'doorRearRight.png', zIndex: 30, x: 27.5, y: 30, width: 10, height: 25 },
   { id: 'wheelFrontRight', name: 'Højre forhjul', file: 'wheelFrontRight.png', zIndex: 22, x: 52, y: 48, width: 9, height: 23 },
@@ -193,8 +193,8 @@ const CarViewer2D = ({
           <div>
             <h3 className="text-lg font-semibold text-gray-900 uppercase">Marker beskadiget område</h3>
             <p className="text-sm text-gray-600 mt-1">
-              Klik på bildele for at markere skader. Drej for at se dem fra forskellige vinkler.
-            </p>
+Klik på de relevante dele af bilen for at markere skaden. Du kan rotere bilen for at se den fra forskellige
+vinkler.            </p>
           </div>
           <button
             onClick={rotateCar}
