@@ -160,7 +160,7 @@ app.post("/api/sendEmail", upload.any(), async (req, res) => {
   html: `
   <div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px; background-color: #f9f9f9;">
     <h2 style="color: #2c3e50;">Hej ${fields.name},</h2>
-    <p>Tak for at indsende din skadevurdering for dit køretøj.</p>
+    <p>Tak fordi du valgte at anmelde din skade hos QuickRepair.dk.</p>
 
     <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
       <tr style="background-color: #ececec;">
@@ -177,7 +177,7 @@ app.post("/api/sendEmail", upload.any(), async (req, res) => {
 
     <p style="margin-top: 30px;">Med venlig hilsen,<br/>
     <strong>QuickRepair.dk</strong></p>
-        <img src="logo.png" alt="QuickRepair.dk" style="height: 40px; margin-top: 8px; display: block;" /></p>
+        <img src="/logo.png" alt="QuickRepair.dk" style="height: 40px; margin-top: 8px; display: block;" /></p>
 
 
     <hr style="border: none; border-top: 1px solid #ddd; margin: 20px 0;" />
