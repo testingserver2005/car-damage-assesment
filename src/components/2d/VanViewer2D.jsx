@@ -291,7 +291,7 @@ Klik på varevognsdele for at markere skader. Drej for at se fra forskellige vin
   </div>
 
   {/* View Navigation */}
-  <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex gap-2">
+<div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex gap-2 z-50">
     {VAN_VIEWS.map((view) => (
       <button
         key={view.id}

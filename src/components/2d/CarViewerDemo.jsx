@@ -38,7 +38,7 @@ const CarViewerDemo = () => {
           onAreaSelect={handleAreaSelect}
           selectedAreas={selectedAreas}
           damages={damages}
-          height={500}
+          height={530}
           className="shadow-lg"
         />
       </div>

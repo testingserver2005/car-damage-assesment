@@ -27,7 +27,7 @@ export const userDetailsSchema = yup.object({
   serviceType: yup
     .string()
     .required('Please select a service type')
-    .oneOf(['insurance', 'self-paid'], 'Please select a valid service type')
+    .oneOf(['Forsikring', 'selvbetalt'], 'Please select a valid service type')
 })
 
 export const damageAssessmentSchema = yup.object({

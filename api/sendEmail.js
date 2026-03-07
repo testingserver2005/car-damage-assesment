@@ -156,7 +156,7 @@ app.post("/api/sendEmail", upload.any(), async (req, res) => {
        await transporter.sendMail({
   from: `Køretøjsvurdering <${process.env.TO_EMAIL}>`,
   to: fields.email,
-  subject: "Tak for din indsendelse af skadevurdering",
+  subject: "Din skadesanmeldelse er nu modtaget",
   html: `
   <div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px; background-color: #f9f9f9;">
     <h2 style="color: #2c3e50;">Hej ${fields.name},</h2>
@@ -176,11 +176,13 @@ app.post("/api/sendEmail", upload.any(), async (req, res) => {
     <p>Vores team vil gennemgå oplysningerne og kontakte dig inden for 24 timer.</p>
 
     <p style="margin-top: 30px;">Med venlig hilsen,<br/>
-    <strong>Quick Repair Team</strong></p>
+    <strong>QuickRepair.dk</strong></p>
+        <img src="logo.png" alt="QuickRepair.dk" style="height: 40px; margin-top: 8px; display: block;" /></p>
+
 
     <hr style="border: none; border-top: 1px solid #ddd; margin: 20px 0;" />
 
-    <p style="font-size: 12px; color: #888;">Dette er en automatisk besked. Venligst svar ikke direkte på denne email.</p>
+    <p style="font-size: 12px; color: #888;">Dette er en automatisk genereret besked. Besvar venligst ikke denne e-mail.</p>
   </div>
   `,
 });

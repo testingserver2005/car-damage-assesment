@@ -186,7 +186,7 @@ const DamageAssessmentForm = ({ onSubmit, onBack,/* userDetails */ }) => {
             }`}
         >
           <img src="/static/assets/img/car/frontRight/body.png" alt="" className='h-12 object-contain' />
-          <p className="mt-2 text-sm font-medium">Bil</p>
+          <p className="mt-2 text-sm font-medium">Mærke</p>
         </div>
 
         <div

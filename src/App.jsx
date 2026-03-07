@@ -55,49 +55,52 @@ function ProgressStepper({ config, currentStep, appState }) {
     <div className="bg-gradient-to-r from-gray-50 via-white to-gray-50 border-b border-gray-200/50 shadow-sm">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <nav aria-label="Progress" className='flex items-center justify-center'>
-          <ol className="flex items-center justify-center gap-x-4 gap-y-3 px-4 sm:px-6">
-            {config.map((step, index) => {
-              const completed = step.isCompleted(appState);
-              const active = currentStep === step.key;
-              const { Icon } = step;
+          <ol className="flex items-center justify-center px-4 sm:px-6">
+  {config.map((step, index) => {
+    const completed = step.isCompleted(appState);
+    const active = currentStep === step.key;
+    const { Icon } = step;
 
-              return (
-                <li key={step.key} className="flex items-center">
-                  <div className="flex flex-col items-center gap-2 h-20 sm:h-10 md:flex-row md:gap-3">
-                    <div
-                      className={clsx(
-                        "flex h-10 w-10 items-center justify-center flex-shrink-0 rounded-full border-2 transition-all",
-                        {
-                          "bg-orange-500 border-orange-500 text-white": completed,
-                          "border-orange-500 text-orange-600": active,
-                          "border-black-300 text-gray-400": !completed && !active,
-                        }
-                      )}
-                    >
-                      {completed ? (
-                        <CheckCircle2 className="h-5 w-5" />
-                      ) : (
-                        <Icon className="h-5 w-5" />
-                      )}
-                    </div>
-                    <span
-                      className={clsx("text-sm md:text-left text-center leading-tight whitespace-pre-line break-words", {
-                        "text-[#fb5c14]": active,
-                        "text-gray-900": completed,
-                        "text-gray-500": !completed && !active,
-                      })}
-                    >
-  {step.name.replace(" ", "\n")}
-                    </span>
-                  </div>
+    return (
+      <li key={step.key} className="flex items-center">
+        {/* Step item: circle + label stacked */}
+        <div className="flex flex-col items-center gap-2 w-20 sm:w-24">
+          <div
+            className={clsx(
+              "flex h-10 w-10 items-center justify-center flex-shrink-0 rounded-full border-2 transition-all",
+              {
+                "bg-[#fb5c14] border-[#fb5c14] text-white": completed,
+                "border-[#fb5c14] text-[#fb5c14]": active,
+                "border-gray-300 text-gray-400": !completed && !active,
+              }
+            )}
+          >
+            {completed ? (
+              <CheckCircle2 className="h-5 w-5" />
+            ) : (
+              <Icon className="h-5 w-5" />
+            )}
+          </div>
 
-                  {index < totalSteps - 1 && (
-                    <div className="flex-1 h-0.5 mx-2 sm:mx-3 md:mx-4 bg-gray-200" />
-                  )}
-                </li>
-              );
+          <span
+            className={clsx("text-xs text-center leading-tight", {
+              "text-[#fb5c14] font-medium": active,
+              "text-gray-900": completed,
+              "text-gray-400": !completed && !active,
             })}
-          </ol>
+          >
+            {step.name}
+          </span>
+        </div>
+
+        {/* Connector line between steps */}
+        {index < totalSteps - 1 && (
+          <div className="w-8 sm:w-12 md:w-16 h-0.5 bg-gray-200 mb-6 flex-shrink-0" />
+        )}
+      </li>
+    );
+  })}
+</ol>
         </nav>
       </div>
     </div>

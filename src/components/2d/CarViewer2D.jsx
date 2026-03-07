@@ -20,8 +20,8 @@ const CAR_PARTS = {
   { id: 'doorRearLeft', name: 'Venstre bagdør', file: 'doorRearLeft.png', zIndex: 30, x: 62, y: 31, width: 10.5, height: 25 },
   { id: 'wheelFrontLeft', name: 'Venstre forhjul', file: 'wheelFrontLeft.png', zIndex: 22, x: 39, y: 48, width: 9, height: 23 },
   { id: 'wheelRearLeft', name: 'Venstre baghjul', file: 'wheelRearLeft.png', zIndex: 15, x: 72, y: 40, width: 5, height: 22 },
-  { id: 'bonnet', name: 'Motorhjelmspanel', file: 'bonnet.png', zIndex: 19, x: 17, y: 32, width: 29, height: 13 },
-  { id: 'hemLeft', name: 'Venstre panelkant', file: 'hem.png', zIndex: 35, x: 48, y: 42, width: 24.5, height: 21 },
+  { id: 'bonnet', name: 'Forklap', file: 'bonnet.png', zIndex: 19, x: 17, y: 32, width: 29, height: 13 },
+  { id: 'hemLeft', name: 'Venstre panel', file: 'hem.png', zIndex: 35, x: 48, y: 42, width: 24.5, height: 21 },
   { id: 'windowRearLeft', name: 'Venstre bagrude', file: 'windowRearLeft.png', zIndex: 35, x: 61, y: 19, width: 11, height: 13 },
   { id: 'lightRearLeft', name: 'Venstre baglygte', file: 'lightRearLeft.png', zIndex: 35, x: 76, y: 31, width: 1.5, height: 6 },
   { id: 'lightFrontLeft', name: 'Venstre forlygte', file: 'lightFrontLeft.png', zIndex: 35, x: 26, y: 42, width: 11, height: 8 },
@@ -32,7 +32,7 @@ frontRight: [
   { id: 'body', name: 'Bilkarrosseri', file: 'body.png', zIndex: 10, x: 10, y: 10, width: 100, height: 100 },
   { id: 'roof', name: 'Tag', file: 'hood.png', zIndex: 20, x: 36, y: 16, width: 22, height: 1 },
   { id: 'mirrorRight', name: 'Højre sidespejl', file: 'mirrorRight.png', zIndex: 25, x: 44, y: 29, width: 5, height: 5 },
-  { id: 'hemRight', name: 'Højre panelkant', file: 'hemRight.png', zIndex: 25, x: 28, y: 45, width: 24, height: 17 },
+  { id: 'hemRight', name: 'Højre panel', file: 'hemRight.png', zIndex: 25, x: 28, y: 45, width: 24, height: 17 },
   { id: 'mudguardRight', name: 'Højre bagskærm', file: 'mudguardRight.png', zIndex: 22, x: 24, y: 20, width: 6, height: 22 },
   { id: 'fenderFront', name: 'Højre forskærm', file: 'fenderRight.png', zIndex: 21, x: 50, y: 32, width: 14, height: 27 },
   { id: 'roofEdgeFrontLeft', name: 'Forreste tagkant', file: 'roofEdgeFront.png', zIndex: 35, x: 41, y: 22, width: 13, height: 5, rotate: 34 },
@@ -44,7 +44,7 @@ frontRight: [
   { id: 'doorRearRight', name: 'Højre bagdør', file: 'doorRearRight.png', zIndex: 30, x: 27.5, y: 30, width: 10, height: 25 },
   { id: 'wheelFrontRight', name: 'Højre forhjul', file: 'wheelFrontRight.png', zIndex: 22, x: 52, y: 48, width: 9, height: 23 },
   { id: 'wheelRearRight', name: 'Højre baghjul', file: 'wheelRearRight.png', zIndex: 15, x: 23, y: 40, width: 5, height: 22 },
-  { id: 'bonnet', name: 'Motorhjelmspanel', file: 'bonnet.png', zIndex: 20, x: 54, y: 32, width: 29, height: 13 },
+  { id: 'bonnet', name: 'Forklap', file: 'bonnet.png', zIndex: 20, x: 54, y: 32, width: 29, height: 13 },
   { id: 'hem', name: 'Panelkant', file: 'hem.png', zIndex: 35, x: 27, y: 39, width: 24, height: 27 },
   { id: 'windowRearRight', name: 'Højre bagrude', file: 'windowRearRight.png', zIndex: 35, x: 28, y: 20, width: 11, height: 12 },
   { id: 'lightRearRight', name: 'Højre baglygte', file: 'lightRearRight.png', zIndex: 35, x: 22.5, y: 29, width: 1.5, height: 7 },
@@ -297,7 +297,7 @@ vinkler.            </p>
     src={getImagePath(view.id, 'body.png')}
     alt="Car Body"
     className="absolute inset-0 w-full h-full object-contain"
-    style={{ zIndex: 1 }}
+    style={{ zIndex: 1}}
   />
             {CAR_PARTS[view.id].filter((part) => part.id !== 'body') // body alag render ho chuki hai
     .map((part) => (
@@ -344,7 +344,7 @@ vinkler.            </p>
   </div>
 
   {/* View Navigation */}
-  <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2">
+  <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2 z-50">
     {VIEWS.map((view) => (
       <button
         key={view.id}

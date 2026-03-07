@@ -91,8 +91,7 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
         <Card className="w-full mx-auto border-orange-200">
           <CardHeader>
             <div className="flex items-center space-x-3">
-              <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center shrink-0 justify-center">
-                <Car className="w-6 h-6 text-orange-600" />
+<div className="w-12 h-12 bg-white border-2 border-[#fb5c14] rounded-full flex items-center shrink-0 justify-center">                <Car className="w-6 h-6 text-orange-600" />
               </div>
               <div>
                 <CardTitle className="text-lg sm:text-xl text-[#fb5c14] font-semibold uppercase">Personlige oplysninger og køretøjsoplysninger</CardTitle>
@@ -210,7 +209,7 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
                     <input
                       type="radio"
                       {...register('serviceType')}
-                      value="insurance"
+                      value="Forsikring"
                       className="sr-only peer"
                     />
                     <div className="
@@ -252,7 +251,7 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
                     <input
                       type="radio"
                       {...register('serviceType')}
-                      value="self-paid"
+                      value="selvbetalt"
                       className="sr-only peer"
                     />
                     <div className="

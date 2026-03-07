@@ -287,12 +287,11 @@ const SuccessPage = ({ assessmentData, onStartNew }) => {
 
         {/* Title */}
         <h2 className="text-2xl font-bold uppercase text-gray-800">
-          Vurdering indsendt med succes
-        </h2>
+SKADESANMELDELSE MODTAGET        </h2>
         <p className="mt-3 text-gray-600">
           Tak, <span className="font-semibold">{result.name}</span>.
           <br />
-          Din vurdering af køretøjsskaden er modtaget.
+Vi har registreret din skadesanmeldelse og går i gang med behandlingen hurtigst muligt. Som regel hører du fra os inden for 1-2 hverdage, hvor vi kontakter dig telefonisk. Tak fordi du benytter QuickRepair.dk
         </p>
 
         {/* Info Card */}
@@ -301,10 +300,10 @@ const SuccessPage = ({ assessmentData, onStartNew }) => {
             <span className="font-medium">Servicetype:</span>{" "}
             {result.serviceType}
           </p>
-          <p className="text-gray-700 text-sm">
+          {/* <p className="text-gray-700 text-sm">
             <span className="font-medium">Samlede skader:</span>{" "}
             {result.totalDamageAreas}
-          </p>
+          </p> */}
           <p className="text-gray-700 text-sm">
             <span className="font-medium">Indsendt den:</span>{" "}
             {new Date(result.submittedAt).toLocaleString()}
