@@ -177,7 +177,13 @@ app.post("/api/sendEmail", upload.any(), async (req, res) => {
 
     <p style="margin-top: 30px;">Med venlig hilsen,<br/>
     <strong>QuickRepair.dk</strong></p>
-        <img src="https://skadesanmeldelse.quickrepair.dk/logo.png" alt="QuickRepair.dk" style="height: 40px; margin-top: 8px; display: block;" /></p>
+<img 
+  src="https://skadesanmeldelse.quickrepair.dk/logo.png" 
+  alt="QuickRepair.dk" 
+  width="120" 
+  height="40" 
+  style="height: 40px; width: 120px; display: block; margin-top: 8px;" 
+/>        </p>
 
 
     <hr style="border: none; border-top: 1px solid #ddd; margin: 20px 0;" />
