@@ -172,7 +172,7 @@ const DamageAssessmentForm = ({ onSubmit, onBack,/* userDetails */ }) => {
         <CardHeader>
           <CardTitle>Trin 2: Skadesoplysninger</CardTitle>
           <CardDescription>
-            Vælg mellem bil eller varevogn. Marker beskadigede område på bilen og upload billeder af skaden.
+            Vælg mellem mærke eller varevogn. Marker beskadigede område på bilen og upload billeder af skaden.
           </CardDescription>
         </CardHeader>
       </Card>

@@ -236,8 +236,8 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
                           <p className=" leading-relaxed ">
                             Vi hjælper med dokumentation og kontakt til dit forsikringsselskab. Du betaler kun eventuel selvrisiko, hvis skaden godkendes.                         </p>
                           <div className="mt-3 flex items-center space-x-2 text-sm transition-colors duration-300
-            text-green-800
-            group-hover:text-green-800
+            text-green-700
+            group-hover:text-green-700
             peer-checked:text-white">
                             <CheckCircle className="w-4 h-4" />
                             <span>Skaden betales af forsikringen</span>
@@ -281,8 +281,8 @@ const UserDetailsForm = ({ onNext, initialData = {} }) => {
                           <p className="leading-relaxed font-normal">
                             Vælg denne løsning, hvis skaden ikke er dækket af dit forsikringsselskab, eller hvis du foretrækker selvbetaling. Vi udarbejder et tilbud på reparationen, så du får et klart overblik over de samlede omkostninger. Har du en høj selvrisiko kan det være en fordel med selvbetaling for mindre skader.                        </p>
                           <div className="mt-3 flex items-center space-x-2 text-sm transition-colors duration-300
-            text-green-800
-            group-hover:text-green-800
+            text-green-700
+            group-hover:text-green-700
             peer-checked:text-white">
                             <CheckCircle className="w-4 h-4" />
                             <span>Fuldt overblik over samlet omkostninger</span>

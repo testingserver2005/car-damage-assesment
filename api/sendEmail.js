@@ -173,7 +173,7 @@ app.post("/api/sendEmail", upload.any(), async (req, res) => {
       </tr>
     </table>
 
-    <p>Vores team vil gennemgå oplysningerne og kontakte dig inden for 24 timer.</p>
+    <p>Vi har registreret din skadesanmeldelse og går i gang med behandlingen hurtigst muligt. Som regel hører du fra os inden for 1-2 hverdage, hvor vi kontakter dig telefonisk.</p>
 
     <p style="margin-top: 30px;">Med venlig hilsen,<br/>
     <strong>QuickRepair.dk</strong></p>

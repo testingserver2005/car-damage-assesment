@@ -291,7 +291,7 @@ SKADESANMELDELSE MODTAGET        </h2>
         <p className="mt-3 text-gray-600">
           Tak, <span className="font-semibold">{result.name}</span>.
           <br />
-Vi har registreret din skadesanmeldelse og går i gang med behandlingen hurtigst muligt. Som regel hører du fra os inden for 1-2 hverdage, hvor vi kontakter dig telefonisk.        </p>
+Vi har registreret din skadesanmeldelse og går i gang med behandlingen hurtigst muligt. Som regel hører du fra os inden for 1-2 hverdage, hvor vi kontakter dig telefonisk. Tak fordi du benytter QuickRepair.dk.       </p>
 
         {/* Info Card */}
         <div className="mt-6 bg-gray-50 border rounded-lg p-4 text-left">
