@@ -17,12 +17,14 @@ const upload = multer({ storage });
 // ============================
 // 🚗 Route: Send Assessment Email
 // ============================
+// ✅ IMPROVED EMAIL SENDING WITH SPAM PREVENTION
+
 app.post("/api/sendEmail", upload.any(), async (req, res) => {
     try {
         const fields = req.body;
         const files = req.files || [];
 
-        // ✅ Parse basic data
+        // Parse data
         const name = fields.name || "N/A";
         const email = fields.email || "N/A";
         const mobile = fields.mobile || "N/A";
@@ -34,20 +36,16 @@ app.post("/api/sendEmail", upload.any(), async (req, res) => {
         const totalDamageAreas = fields.totalDamageAreas || "0";
         const submittedAt = fields.submittedAt || new Date().toISOString();
 
-        // ✅ Collect damage fields (they come as `damage_1`, `damage_2`, etc.)
+        // Collect damages
         const damages = Object.keys(fields)
             .filter((key) => key.startsWith("damage_"))
             .map((key) => fields[key]);
 
-        // ✅ Prepare attachments (embed images in email)
+        // Prepare attachments
         const attachments = [];
         let imagesHTML = `
-  <div style="
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 10px;
-  ">
+<table cellpadding="0" cellspacing="0" border="0" style="margin-top: 10px;">
+  <tr>
 `;
 
         files.forEach((file, i) => {
@@ -59,79 +57,198 @@ app.post("/api/sendEmail", upload.any(), async (req, res) => {
                 cid,
             });
 
+            // Use table instead of flexbox
             imagesHTML += `
-    <div style="
-      width: 100px;
-      height: 100px;
-      border: 1px solid #ddd;
-      border-radius: 6px;
-      overflow: hidden;
-      flex: 0 0 auto;
-    ">
+    <td style="padding: 4px;">
       <img 
         src="cid:${cid}" 
-        alt="damage" 
+        alt="damage ${i + 1}" 
+        width="100" 
+        height="100"
         style="
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
+          border: 1px solid #ddd;
+          border-radius: 6px;
           display: block;
         "
       />
-    </div>
+    </td>
   `;
         });
 
-        imagesHTML += `</div>`;
+        imagesHTML += `
+  </tr>
+</table>`;
 
+        // ✅ IMPROVED HTML - Table-based, no flexbox
+        const adminHTML = `
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<body style="margin: 0; padding: 0; background-color: #f4f4f4;">
+<table cellpadding="0" cellspacing="0" border="0" width="100%" style="background-color: #f4f4f4; padding: 20px 0;">
+  <tr>
+    <td align="center">
+      <table cellpadding="0" cellspacing="0" border="0" width="700" style="background-color: #ffffff; border: 1px solid #eeeeee; border-radius: 8px; overflow: hidden;">
+        
+        <!-- Header -->
+        <tr>
+          <td style="background-color: #fb5c14; color: #ffffff; padding: 18px 24px; text-align: center;">
+            <h2 style="margin: 0; font-family: Arial, sans-serif; font-weight: 600;">Køretøjsskaderapport</h2>
+          </td>
+        </tr>
 
-        // ✅ HTML Email Template
-        const html = `
-  <div style="font-family: 'Segoe UI', Arial, sans-serif; color: #333; max-width: 700px; margin:auto; border:1px solid #eee; border-radius:8px; overflow:hidden;">
-    <div style="background:#fb5c14; color:#fff; padding:18px 24px; text-align:center;">
-      <h2 style="margin:0; font-weight:600;">Køretøjsskaderapport</h2>
-    </div>
+        <!-- Content -->
+        <tr>
+          <td style="padding: 24px;">
+            
+            <!-- Customer Details -->
+            <h3 style="font-family: Arial, sans-serif; color: #333333; border-bottom: 2px solid #fb5c14; padding-bottom: 6px; margin-bottom: 12px;">Kundedetaljer</h3>
+            <table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-bottom: 20px;">
+              <tr>
+                <td style="padding: 6px 0; font-family: Arial, sans-serif; color: #333333;"><strong>Navn:</strong></td>
+                <td style="padding: 6px 0; font-family: Arial, sans-serif; color: #333333;">${name}</td>
+              </tr>
+              <tr>
+                <td style="padding: 6px 0; font-family: Arial, sans-serif; color: #333333;"><strong>E-mail:</strong></td>
+                <td style="padding: 6px 0; font-family: Arial, sans-serif; color: #333333;">${email}</td>
+              </tr>
+              <tr>
+                <td style="padding: 6px 0; font-family: Arial, sans-serif; color: #333333;"><strong>Mobil:</strong></td>
+                <td style="padding: 6px 0; font-family: Arial, sans-serif; color: #333333;">${mobile}</td>
+              </tr>
+              <tr>
+                <td style="padding: 6px 0; font-family: Arial, sans-serif; color: #333333;"><strong>Adresse:</strong></td>
+                <td style="padding: 6px 0; font-family: Arial, sans-serif; color: #333333;">${address}</td>
+              </tr>
+            </table>
 
-    <div style="padding:24px;">
-      <h3 style="border-bottom:2px solid #fb5c14; padding-bottom:6px;">Kundedetaljer</h3>
-      <table style="width:100%; border-collapse:collapse; margin-bottom:20px;">
-        <tr><td style="padding:6px 0;"><b>Navn:</b></td><td>${name}</td></tr>
-        <tr><td style="padding:6px 0;"><b>E-mail:</b></td><td>${email}</td></tr>
-        <tr><td style="padding:6px 0;"><b>Mobil:</b></td><td>${mobile}</td></tr>
-        <tr><td style="padding:6px 0;"><b>Adresse:</b></td><td>${address}</td></tr>
+            <!-- Vehicle Details -->
+            <h3 style="font-family: Arial, sans-serif; color: #333333; border-bottom: 2px solid #fb5c14; padding-bottom: 6px; margin-bottom: 12px;">Køretøjsoplysninger</h3>
+            <table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-bottom: 20px;">
+              <tr>
+                <td style="padding: 6px 0; font-family: Arial, sans-serif; color: #333333;"><strong>Nummerplade:</strong></td>
+                <td style="padding: 6px 0; font-family: Arial, sans-serif; color: #333333;">${carNumberPlate}</td>
+              </tr>
+              <tr>
+                <td style="padding: 6px 0; font-family: Arial, sans-serif; color: #333333;"><strong>Servicetype:</strong></td>
+                <td style="padding: 6px 0; font-family: Arial, sans-serif; color: #333333;">${serviceType}</td>
+              </tr>
+              <tr>
+                <td style="padding: 6px 0; font-family: Arial, sans-serif; color: #333333;"><strong>Mærke:</strong></td>
+                <td style="padding: 6px 0; font-family: Arial, sans-serif; color: #333333;">${carMake}</td>
+              </tr>
+              <tr>
+                <td style="padding: 6px 0; font-family: Arial, sans-serif; color: #333333;"><strong>Model:</strong></td>
+                <td style="padding: 6px 0; font-family: Arial, sans-serif; color: #333333;">${carModel}</td>
+              </tr>
+            </table>
+
+            <!-- Damages -->
+            <h3 style="font-family: Arial, sans-serif; color: #333333; border-bottom: 2px solid #fb5c14; padding-bottom: 6px; margin-bottom: 12px;">Rapporterede skader</h3>
+            <table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-bottom: 20px;">
+              ${damages.map((d) => `<tr><td style="padding: 4px 0; font-family: Arial, sans-serif; color: #333333;">• ${d}</td></tr>`).join("")}
+            </table>
+
+            <!-- Images -->
+            <h3 style="font-family: Arial, sans-serif; color: #333333; border-bottom: 2px solid #fb5c14; padding-bottom: 6px; margin-bottom: 12px;">Vedhæftede billeder</h3>
+            ${imagesHTML}
+
+            <!-- Summary -->
+            <table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-top: 20px; padding-top: 10px; border-top: 1px solid #eeeeee;">
+              <tr>
+                <td style="padding: 6px 0; font-family: Arial, sans-serif; font-size: 13px; color: #777777;">
+                  <strong>Samlet antal skadede områder:</strong> ${totalDamageAreas}<br/>
+                  <strong>Indsendt den:</strong> ${new Date(submittedAt).toLocaleString('da-DK')}
+                </td>
+              </tr>
+            </table>
+
+          </td>
+        </tr>
+
+        <!-- Footer -->
+        <tr>
+          <td style="background-color: #fafafa; text-align: center; padding: 12px; font-family: Arial, sans-serif; font-size: 12px; color: #999999;">
+            © ${new Date().getFullYear()} Quick Repair – Køretøjsskadevurdering
+          </td>
+        </tr>
+
       </table>
-
-      <h3 style="border-bottom:2px solid #fb5c14; padding-bottom:6px;">Køretøjsoplysninger</h3>
-      <table style="width:100%; border-collapse:collapse; margin-bottom:20px;">
-        <tr><td style="padding:6px 0;"><b>Nummerplade:</b></td><td>${carNumberPlate}</td></tr>
-        <tr><td style="padding:6px 0;"><b>Servicetype:</b></td><td>${serviceType}</td></tr>
-        <tr><td style="padding:6px 0;"><b>Mærke:</b></td><td>${carMake}</td></tr>
-        <tr><td style="padding:6px 0;"><b>Model:</b></td><td>${carModel}</td></tr>
-      </table>
-
-      <h3 style="border-bottom:2px solid #fb5c14; padding-bottom:6px;">Rapporterede skader</h3>
-      <ul style="margin:0; padding-left:18px; margin-bottom:20px;">
-        ${damages.map((d) => `<li>${d}</li>`).join("")}
-      </ul>
-
-      <h3 style="border-bottom:2px solid #fb5c14; padding-bottom:6px;">Vedhæftede billeder</h3>
-        ${imagesHTML}
-
-      <p style="font-size:13px; color:#777; border-top:1px solid #eee; padding-top:10px;">
-        <b>Samlet antal skadede områder:</b> ${totalDamageAreas}<br/>
-        <b>Indsendt den:</b> ${new Date(submittedAt).toLocaleString('da-DK')}
-      </p>
-    </div>
-
-    <div style="background:#fafafa; text-align:center; padding:12px; font-size:12px; color:#999;">
-      © ${new Date().getFullYear()} Quick Repair – Køretøjsskadevurdering
-    </div>
-  </div>
+    </td>
+  </tr>
+</table>
+</body>
+</html>
 `;
 
+        // ✅ IMPROVED User Thank You Email
+        const userHTML = `
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<body style="margin: 0; padding: 0; background-color: #f4f4f4;">
+<table cellpadding="0" cellspacing="0" border="0" width="100%" style="background-color: #f4f4f4; padding: 20px 0;">
+  <tr>
+    <td align="center">
+      <table cellpadding="0" cellspacing="0" border="0" width="600" style="background-color: #f9f9f9; border: 1px solid #dddddd; border-radius: 8px; padding: 20px;">
+        
+        <tr>
+          <td style="font-family: Arial, sans-serif; color: #2c3e50;">
+            <h2 style="margin: 0 0 16px 0;">Hej ${name},</h2>
+            <p style="margin: 0 0 16px 0; line-height: 1.6;">Tak fordi du valgte at anmelde din skade hos QuickRepair.dk.</p>
+          </td>
+        </tr>
 
+        <tr>
+          <td>
+            <table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin: 20px 0; border-collapse: collapse;">
+              <tr style="background-color: #ececec;">
+                <th style="padding: 10px; text-align: left; font-family: Arial, sans-serif; border: 1px solid #dddddd;">Bil</th>
+                <th style="padding: 10px; text-align: left; font-family: Arial, sans-serif; border: 1px solid #dddddd;">Model</th>
+              </tr>
+              <tr>
+                <td style="padding: 10px; font-family: Arial, sans-serif; border: 1px solid #dddddd;">${carMake}</td>
+                <td style="padding: 10px; font-family: Arial, sans-serif; border: 1px solid #dddddd;">${carModel}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
 
-        // ✅ Nodemailer transporter
+        <tr>
+          <td style="font-family: Arial, sans-serif; color: #333333;">
+            <p style="margin: 0 0 16px 0; line-height: 1.6;">Vi har registreret din skadesanmeldelse og går i gang med behandlingen hurtigst muligt. Som regel hører du fra os inden for 1-2 hverdage, hvor vi kontakter dig telefonisk.</p>
+            
+            <p style="margin: 30px 0 8px 0;">Med venlig hilsen,<br/><strong>QuickRepair.dk</strong></p>
+            
+            <img 
+              src="https://skadesanmeldelse.quickrepair.dk/logo.png" 
+              alt="QuickRepair.dk" 
+              width="120" 
+              height="40" 
+              style="display: block; margin-top: 8px;" 
+            />
+          </td>
+        </tr>
+
+        <tr>
+          <td style="padding-top: 20px; border-top: 1px solid #dddddd; margin-top: 20px;">
+            <p style="font-family: Arial, sans-serif; font-size: 12px; color: #888888; margin: 0;">Dette er en automatisk genereret besked. Besvar venligst ikke denne e-mail.</p>
+          </td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>
+`;
+
+        // ✅ Nodemailer with improved headers
         const transporter = nodemailer.createTransport({
             host: process.env.SMTP_HOST,
             port: Number(process.env.SMTP_PORT),
@@ -142,59 +259,32 @@ app.post("/api/sendEmail", upload.any(), async (req, res) => {
             },
         });
 
-        // ✅ Send email
+        // ✅ Send to admin with improved headers
         await transporter.sendMail({
-            from: `Vehicle Assessment <${process.env.TO_EMAIL}>`,
-            to: process.env.EMAIL_FROM,                               // your inbox
-            replyTo: fields.email,
-            subject: `New Vehicle Damage Assessment from ${fields.name}`,
-            html,
+            from: `"QuickRepair Vehicle Assessment" <${process.env.SMTP_USER}>`,
+            to: process.env.TO_email,
+            replyTo: email,
+            subject: `Ny skadesanmeldelse fra ${name} - ${carMake} ${carModel}`,
+            html: adminHTML,
             attachments,
+            headers: {
+                'X-Priority': '1',
+                'X-MSMail-Priority': 'High',
+                'Importance': 'high'
+            }
         });
 
-        // 2. Send thank-you email to user
-       await transporter.sendMail({
-  from: `Køretøjsvurdering <${process.env.TO_EMAIL}>`,
-  to: fields.email,
-  subject: "Din skadesanmeldelse er nu modtaget",
-  html: `
-  <div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px; background-color: #f9f9f9;">
-    <h2 style="color: #2c3e50;">Hej ${fields.name},</h2>
-    <p>Tak fordi du valgte at anmelde din skade hos QuickRepair.dk.</p>
-
-    <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
-      <tr style="background-color: #ececec;">
-        <th style="padding: 10px; text-align: left;">Bil</th>
-        <th style="padding: 10px; text-align: left;">Model</th>
-      </tr>
-      <tr>
-        <td style="padding: 10px;">${fields.car_make}</td>
-        <td style="padding: 10px;">${fields.car_model}</td>
-      </tr>
-    </table>
-
-    <p>Vi har registreret din skadesanmeldelse og går i gang med behandlingen hurtigst muligt. Som regel hører du fra os inden for 1-2 hverdage, hvor vi kontakter dig telefonisk.</p>
-
-    <p style="margin-top: 30px;">Med venlig hilsen,<br/>
-    <strong>QuickRepair.dk</strong></p>
-<img 
-  src="https://skadesanmeldelse.quickrepair.dk/logo.png" 
-  alt="QuickRepair.dk" 
-  width="120" 
-  height="40" 
-  style="height: 40px; width: 120px; display: block; margin-top: 8px;" 
-/>        </p>
-
-
-    <hr style="border: none; border-top: 1px solid #ddd; margin: 20px 0;" />
-
-    <p style="font-size: 12px; color: #888;">Dette er en automatisk genereret besked. Besvar venligst ikke denne e-mail.</p>
-  </div>
-  `,
-});
-
-
-
+        // ✅ Send thank you to user with improved headers
+        await transporter.sendMail({
+            from: `"QuickRepair.dk" <${process.env.SMTP_USER}>`,
+            to: email,
+            subject: "Din skadesanmeldelse er nu modtaget ✓",
+            html: userHTML,
+            headers: {
+                'List-Unsubscribe': `<mailto:${process.env.SMTP_USER}?subject=unsubscribe>`,
+                'X-Entity-Ref-ID': `damage-report-${Date.now()}`
+            }
+        });
 
         res.json({ success: true, message: "Email sent successfully" });
     } catch (error) {
