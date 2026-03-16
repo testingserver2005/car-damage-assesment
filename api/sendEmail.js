@@ -207,7 +207,7 @@ app.post("/api/sendEmail", upload.any(), async (req, res) => {
           <td>
             <table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin: 20px 0; border-collapse: collapse;">
               <tr style="background-color: #ececec;">
-                <th style="padding: 10px; text-align: left; font-family: Arial, sans-serif; border: 1px solid #dddddd;">Bil</th>
+                <th style="padding: 10px; text-align: left; font-family: Arial, sans-serif; border: 1px solid #dddddd;">Mærke</th>
                 <th style="padding: 10px; text-align: left; font-family: Arial, sans-serif; border: 1px solid #dddddd;">Model</th>
               </tr>
               <tr>
@@ -259,7 +259,7 @@ app.post("/api/sendEmail", upload.any(), async (req, res) => {
 
     // ✅ Send to admin with improved headers
     await transporter.sendMail({
-      from: `"QuickRepair Vehicle Assessment" <${process.env.SMTP_USER}>`,
+      from: `"QuickRepair.dk" <${process.env.SMTP_USER}>`,
       to: process.env.TO_email,
       replyTo: email,
       subject: `Ny skadesanmeldelse fra ${name} - ${carMake} ${carModel}`,

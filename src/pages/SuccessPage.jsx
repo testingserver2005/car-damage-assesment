@@ -315,7 +315,7 @@ Vi har registreret din skadesanmeldelse og går i gang med behandlingen hurtigst
             onClick={onStartNew}
             className="px-6 py-2 bg-[#fb5c14] hover:bg-[#fb5c14] text-white rounded-lg shadow transition cursor-pointer"
           >
-            Ny skadesanmeldelse
+            NY SKADESANMELDELSE
           </button> 
         </div>
       </div>
