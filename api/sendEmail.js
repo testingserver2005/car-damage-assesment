@@ -20,45 +20,45 @@ const upload = multer({ storage });
 // ✅ IMPROVED EMAIL SENDING WITH SPAM PREVENTION
 
 app.post("/api/sendEmail", upload.any(), async (req, res) => {
-    try {
-        const fields = req.body;
-        const files = req.files || [];
+  try {
+    const fields = req.body;
+    const files = req.files || [];
 
-        // Parse data
-        const name = fields.name || "N/A";
-        const email = fields.email || "N/A";
-        const mobile = fields.mobile || "N/A";
-        const address = fields.address || "N/A";
-        const carNumberPlate = fields.carNumberPlate || "N/A";
-        const serviceType = fields.serviceType || "N/A";
-        const carMake = fields.car_make || "N/A";
-        const carModel = fields.car_model || "N/A";
-        const totalDamageAreas = fields.totalDamageAreas || "0";
-        const submittedAt = fields.submittedAt || new Date().toISOString();
+    // Parse data
+    const name = fields.name || "N/A";
+    const email = fields.email || "N/A";
+    const mobile = fields.mobile || "N/A";
+    const address = fields.address || "N/A";
+    const carNumberPlate = fields.carNumberPlate || "N/A";
+    const serviceType = fields.serviceType || "N/A";
+    const carMake = fields.car_make || "N/A";
+    const carModel = fields.car_model || "N/A";
+    const totalDamageAreas = fields.totalDamageAreas || "0";
+    const submittedAt = fields.submittedAt || new Date().toISOString();
 
-        // Collect damages
-        const damages = Object.keys(fields)
-            .filter((key) => key.startsWith("damage_"))
-            .map((key) => fields[key]);
+    // Collect damages
+    const damages = Object.keys(fields)
+      .filter((key) => key.startsWith("damage_"))
+      .map((key) => fields[key]);
 
-        // Prepare attachments
-        const attachments = [];
-        let imagesHTML = `
+    // Prepare attachments
+    const attachments = [];
+    let imagesHTML = `
 <table cellpadding="0" cellspacing="0" border="0" style="margin-top: 10px;">
   <tr>
 `;
 
-        files.forEach((file, i) => {
-            const cid = `image${i}@damage`;
-            attachments.push({
-                filename: file.originalname,
-                content: file.buffer,
-                contentType: file.mimetype,
-                cid,
-            });
+    files.forEach((file, i) => {
+      const cid = `image${i}@damage`;
+      attachments.push({
+        filename: file.originalname,
+        content: file.buffer,
+        contentType: file.mimetype,
+        cid,
+      });
 
-            // Use table instead of flexbox
-            imagesHTML += `
+      // Use table instead of flexbox
+      imagesHTML += `
     <td style="padding: 4px;">
       <img 
         src="cid:${cid}" 
@@ -73,14 +73,14 @@ app.post("/api/sendEmail", upload.any(), async (req, res) => {
       />
     </td>
   `;
-        });
+    });
 
-        imagesHTML += `
+    imagesHTML += `
   </tr>
 </table>`;
 
-        // ✅ IMPROVED HTML - Table-based, no flexbox
-        const adminHTML = `
+    // ✅ IMPROVED HTML - Table-based, no flexbox
+    const adminHTML = `
 <!DOCTYPE html>
 <html>
 <head>
@@ -95,7 +95,7 @@ app.post("/api/sendEmail", upload.any(), async (req, res) => {
         <!-- Header -->
         <tr>
           <td style="background-color: #fb5c14; color: #ffffff; padding: 18px 24px; text-align: center;">
-            <h2 style="margin: 0; font-family: Arial, sans-serif; font-weight: 600;">Køretøjsskaderapport</h2>
+            <h2 style="margin: 0; font-family: Arial, sans-serif; font-weight: 600;">Rapport for skadesanmeldelse</h2>
           </td>
         </tr>
 
@@ -183,8 +183,8 @@ app.post("/api/sendEmail", upload.any(), async (req, res) => {
 </html>
 `;
 
-        // ✅ IMPROVED User Thank You Email
-        const userHTML = `
+    // ✅ IMPROVED User Thank You Email
+    const userHTML = `
 <!DOCTYPE html>
 <html>
 <head>
@@ -225,12 +225,10 @@ app.post("/api/sendEmail", upload.any(), async (req, res) => {
             <p style="margin: 30px 0 8px 0;">Med venlig hilsen,<br/><strong>QuickRepair.dk</strong></p>
             
             <img 
-              src="https://skadesanmeldelse.quickrepair.dk/logo.png" 
-              alt="QuickRepair.dk" 
-              width="120" 
-              height="40" 
-              style="display: block; margin-top: 8px;" 
-            />
+  src="https://skadesanmeldelse.quickrepair.dk/logo.png" 
+  alt="QuickRepair.dk"
+  style="display:block; margin-top:8px; max-width:120px; height:auto;"
+/>
           </td>
         </tr>
 
@@ -248,49 +246,49 @@ app.post("/api/sendEmail", upload.any(), async (req, res) => {
 </html>
 `;
 
-        // ✅ Nodemailer with improved headers
-        const transporter = nodemailer.createTransport({
-            host: process.env.SMTP_HOST,
-            port: Number(process.env.SMTP_PORT),
-            secure: process.env.SMTP_SECURE === "true",
-            auth: {
-                user: process.env.SMTP_USER,
-                pass: process.env.SMTP_PASS,
-            },
-        });
+    // ✅ Nodemailer with improved headers
+    const transporter = nodemailer.createTransport({
+      host: process.env.SMTP_HOST,
+      port: Number(process.env.SMTP_PORT),
+      secure: process.env.SMTP_SECURE === "true",
+      auth: {
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASS,
+      },
+    });
 
-        // ✅ Send to admin with improved headers
-        await transporter.sendMail({
-            from: `"QuickRepair Vehicle Assessment" <${process.env.SMTP_USER}>`,
-            to: process.env.TO_email,
-            replyTo: email,
-            subject: `Ny skadesanmeldelse fra ${name} - ${carMake} ${carModel}`,
-            html: adminHTML,
-            attachments,
-            headers: {
-                'X-Priority': '1',
-                'X-MSMail-Priority': 'High',
-                'Importance': 'high'
-            }
-        });
+    // ✅ Send to admin with improved headers
+    await transporter.sendMail({
+      from: `"QuickRepair Vehicle Assessment" <${process.env.SMTP_USER}>`,
+      to: process.env.TO_email,
+      replyTo: email,
+      subject: `Ny skadesanmeldelse fra ${name} - ${carMake} ${carModel}`,
+      html: adminHTML,
+      attachments,
+      headers: {
+        'X-Priority': '1',
+        'X-MSMail-Priority': 'High',
+        'Importance': 'high'
+      }
+    });
 
-        // ✅ Send thank you to user with improved headers
-        await transporter.sendMail({
-            from: `"QuickRepair.dk" <${process.env.SMTP_USER}>`,
-            to: email,
-            subject: "Din skadesanmeldelse er nu modtaget ✓",
-            html: userHTML,
-            headers: {
-                'List-Unsubscribe': `<mailto:${process.env.SMTP_USER}?subject=unsubscribe>`,
-                'X-Entity-Ref-ID': `damage-report-${Date.now()}`
-            }
-        });
+    // ✅ Send thank you to user with improved headers
+    await transporter.sendMail({
+      from: `"QuickRepair.dk" <${process.env.SMTP_USER}>`,
+      to: email,
+      subject: "Din skadesanmeldelse er nu modtaget ✓",
+      html: userHTML,
+      headers: {
+        'List-Unsubscribe': `<mailto:${process.env.SMTP_USER}?subject=unsubscribe>`,
+        'X-Entity-Ref-ID': `damage-report-${Date.now()}`
+      }
+    });
 
-        res.json({ success: true, message: "Email sent successfully" });
-    } catch (error) {
-        console.error("Error sending email:", error);
-        res.status(500).json({ success: false, error: error.message });
-    }
+    res.json({ success: true, message: "Email sent successfully" });
+  } catch (error) {
+    console.error("Error sending email:", error);
+    res.status(500).json({ success: false, error: error.message });
+  }
 });
 
 
