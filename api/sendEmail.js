@@ -171,7 +171,7 @@ app.post("/api/sendEmail", upload.any(), async (req, res) => {
         <!-- Footer -->
         <tr>
           <td style="background-color: #fafafa; text-align: center; padding: 12px; font-family: Arial, sans-serif; font-size: 12px; color: #999999;">
-            © ${new Date().getFullYear()} Quick Repair – Køretøjsskadevurdering
+            © ${new Date().getFullYear()} Quick Repair – Rapport for skadesanmeldelse
           </td>
         </tr>
 
