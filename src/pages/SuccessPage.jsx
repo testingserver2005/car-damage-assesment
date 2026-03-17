@@ -310,21 +310,20 @@ Vi har registreret din skadesanmeldelse og går i gang med behandlingen hurtigst
         </div>
 
         {/* Action */}
-        <div className="mt-8 flex gap-4 justify-center">
+       <div className="mt-8 flex gap-6 justify-center">
   <button
     onClick={onStartNew}
     className="px-6 py-2 bg-[#fb5c14] hover:bg-[#e04e0f] text-white rounded-lg shadow transition cursor-pointer"
   >
     NY SKADESANMELDELSE
   </button>
-<a
-  
-    href="http://quickrepair.dk/"
-    target="_blank"
-    rel="noopener noreferrer"
+
+  <button
+    onClick={() => window.open("http://quickrepair.dk/", "_blank")}
     className="px-6 py-2 bg-[#fb5c14] hover:bg-[#e04e0f] text-white rounded-lg shadow transition cursor-pointer"
   >
-FORSIDE  </a>
+FORSIDE
+  </button>
 </div>
       </div>
     </div>
