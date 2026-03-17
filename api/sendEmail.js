@@ -258,19 +258,28 @@ app.post("/api/sendEmail", upload.any(), async (req, res) => {
     });
 
     // ✅ Send to admin with improved headers
-    await transporter.sendMail({
-      from: `"QuickRepair.dk" <${process.env.SMTP_USER}>`,
-      to: process.env.TO_email,
-      replyTo: email,
-      subject: `Ny skadesanmeldelse fra ${name} - ${carMake} ${carModel}`,
-      html: adminHTML,
-      attachments,
-      headers: {
-        'X-Priority': '1',
-        'X-MSMail-Priority': 'High',
-        'Importance': 'high'
-      }
-    });
+   await transporter.sendMail({
+  from: `"QuickRepair.dk" <${process.env.SMTP_USER}>`,
+  to: process.env.TO_email,
+  replyTo: email,
+  subject: `Ny skadesanmeldelse fra ${name} - ${carMake} ${carModel}`,
+  html: adminHTML,
+  attachments: [
+    // Inline images (CID for email body)
+    ...attachments,
+    // Full-size downloadable copies
+    ...files.map((file, i) => ({
+      filename: `skade_${i + 1}_${file.originalname}`,
+      content: file.buffer,
+      contentType: file.mimetype,
+    })),
+  ],
+  headers: {
+    'X-Priority': '1',
+    'X-MSMail-Priority': 'High',
+    'Importance': 'high'
+  }
+});
 
     // ✅ Send thank you to user with improved headers
     await transporter.sendMail({
