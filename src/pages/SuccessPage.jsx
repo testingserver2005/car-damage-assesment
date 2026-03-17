@@ -310,17 +310,17 @@ Vi har registreret din skadesanmeldelse og går i gang med behandlingen hurtigst
         </div>
 
         {/* Action */}
-       <div className="mt-8 flex gap-6 justify-center">
+       <div className="mt-8 flex flex-wrap gap-6 justify-center">
   <button
     onClick={onStartNew}
-    className="px-6 py-2 bg-[#fb5c14] hover:bg-[#e04e0f] text-white rounded-lg shadow transition cursor-pointer"
+    className="flex items-center justify-center px-6 py-2 bg-[#fb5c14] hover:bg-[#e04e0f] text-white rounded-lg shadow transition cursor-pointer"
   >
     NY SKADESANMELDELSE
   </button>
 
   <button
     onClick={() => window.open("http://quickrepair.dk/", "_blank")}
-    className="px-6 py-2 bg-[#fb5c14] hover:bg-[#e04e0f] text-white rounded-lg shadow transition cursor-pointer"
+    className="flex items-center justify-center px-6 py-2 bg-[#fb5c14] hover:bg-[#e04e0f] text-white rounded-lg shadow transition cursor-pointer"
   >
 FORSIDE
   </button>
