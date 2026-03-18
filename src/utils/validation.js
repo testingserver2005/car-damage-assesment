@@ -3,31 +3,31 @@ import * as yup from 'yup'
 export const userDetailsSchema = yup.object({
   name: yup
     .string()
-    .required('Name is required')
-    .min(2, 'Name must be at least 2 characters')
-    .max(100, 'Name must not exceed 100 characters'),
+    .required('Navn er påkrævet')
+    .min(2, 'Navnet skal være mindst 2 tegn')
+    .max(100, 'Navnet må ikke overstige 100 tegn'),
   email: yup
     .string()
-    .required('Email is required')
-    .email('Please enter a valid email address'),
+    .required('E-mailadresse er påkrævet')
+    .email('Indtast venligst en gyldig e-mailadresse'),
   mobile: yup
     .string()
-    .required('Mobile number is required'),
-    // .matches(/^\+45\s?\d{2}\s?\d{2}\s?\d{2}\s?\d{2}$/, 'Please enter a valid mobile number'),
+    .required('Mobilnummer er påkrævet'),
+    // .matches(/^\+45\s?\d{2}\s?\d{2}\s?\d{2}\s?\d{2}$/, 'Indtast venligst et gyldigt mobilnummer'),
   address: yup
     .string()
-    .required('Address is required')
-    .min(10, 'Address must be at least 10 characters')
-    .max(500, 'Address must not exceed 500 characters'),
+    .required('Adresse er påkrævet')
+    .min(10, 'Adressen skal være mindst 10 tegn')
+    .max(500, 'Adressen må ikke overstige 500 tegn'),
   carNumberPlate: yup
     .string()
-    .required('Car number plate is required')
-    .min(3, 'Car number plate must be at least 3 characters')
-    .max(20, 'Car number plate must not exceed 20 characters'),
+    .required('Nummerplade er påkrævet')
+    .min(3, 'Nummerpladen skal være mindst 3 tegn')
+    .max(20, 'Nummerpladen må ikke overstige 20 tegn'),
   serviceType: yup
     .string()
-    .required('Please select a service type')
-    .oneOf(['Forsikring', 'selvbetalt'], 'Please select a valid service type')
+    .required('Vælg venligst en servicetype')
+    .oneOf(['Forsikring', 'selvbetalt'], 'Vælg venligst en gyldig servicetype')
 })
 
 export const damageAssessmentSchema = yup.object({
@@ -38,13 +38,13 @@ export const damageAssessmentSchema = yup.object({
         id: yup.string().required(),
         area: yup.string().required(),
         severity: yup.string().oneOf(['light', 'moderate', 'severe']).required(),
-        comment: yup.string().max(500, 'Comment must not exceed 500 characters')
+        comment: yup.string().max(500, 'Kommentaren må ikke overstige 500 tegn')
       })
     )
-    .min(1, 'Please select at least one damage area'),
+    .min(1, 'Vælg venligst mindst ét skadesområde'),
   images: yup
     .array()
     .of(yup.mixed())
     .min(1, 'Tilføj minimum 1 billede.')
-    .max(10, 'Maximum 10 images allowed')
+    .max(10, 'Maksimalt 10 billeder er tilladt')
 })

@@ -227,7 +227,7 @@ app.post("/api/sendEmail", upload.any(), async (req, res) => {
             <img 
   src="https://skadesanmeldelse.quickrepair.dk/logo.png" 
   alt="QuickRepair.dk"
-  style="display:block; margin-top:8px; max-width:120px; height:auto;"
+  style="display:block;"
 />
           </td>
         </tr>
