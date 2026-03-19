@@ -11,7 +11,7 @@ function Hero() {
         <div className="flex justify-center">
           <a href="http://quickrepair.dk/" target="_blank" rel="noopener noreferrer">
     <img
-      src="/logo.png"
+      src="/logo-main.png"
       alt="Company Logo"
       className="w-40 sm:w-52 md:w-64 object-contain"
     />
