@@ -197,7 +197,7 @@ app.post("/api/sendEmail", upload.any(), async (req, res) => {
       <table cellpadding="0" cellspacing="0" border="0" width="600" style="background-color: #f9f9f9; border: 1px solid #dddddd; border-radius: 8px; padding: 20px;">
         
         <tr>
-          <td style="font-family: Arial, sans-serif; color: #2c3e50;">
+          <td style="font-family: Arial, sans-serif; color: #333333;">
             <h2 style="margin: 0 0 16px 0;">Hej ${name},</h2>
             <p style="margin: 0 0 16px 0; line-height: 1.6;">Tak fordi du valgte at anmelde din skade hos QuickRepair.dk.</p>
           </td>
@@ -224,11 +224,13 @@ app.post("/api/sendEmail", upload.any(), async (req, res) => {
             
             <p style="margin: 30px 0 8px 0;">Med venlig hilsen,<br/><strong>QuickRepair.dk</strong></p>
             
+            <a href="http://quickrepair.dk/" target="_blank"
             <img 
   src="https://skadesanmeldelse.quickrepair.dk/logo.png" 
   alt="QuickRepair.dk"
   style="display:block;"
 />
+</a>
           </td>
         </tr>
 
@@ -258,28 +260,28 @@ app.post("/api/sendEmail", upload.any(), async (req, res) => {
     });
 
     // ✅ Send to admin with improved headers
-   await transporter.sendMail({
-  from: `"QuickRepair.dk" <${process.env.SMTP_USER}>`,
-  to: process.env.TO_email,
-  replyTo: email,
-  subject: `Ny skadesanmeldelse fra ${name} - ${carMake} ${carModel}`,
-  html: adminHTML,
-  attachments: [
-    // Inline images (CID for email body)
-    ...attachments,
-    // Full-size downloadable copies
-    ...files.map((file, i) => ({
-      filename: `skade_${i + 1}_${file.originalname}`,
-      content: file.buffer,
-      contentType: file.mimetype,
-    })),
-  ],
-  headers: {
-    'X-Priority': '1',
-    'X-MSMail-Priority': 'High',
-    'Importance': 'high'
-  }
-});
+    await transporter.sendMail({
+      from: `"QuickRepair.dk" <${process.env.SMTP_USER}>`,
+      to: process.env.TO_email,
+      replyTo: email,
+      subject: `Ny skadesanmeldelse fra ${name} - ${carMake} ${carModel}`,
+      html: adminHTML,
+      attachments: [
+        // Inline images (CID for email body)
+        ...attachments,
+        // Full-size downloadable copies
+        ...files.map((file, i) => ({
+          filename: `skade_${i + 1}_${file.originalname}`,
+          content: file.buffer,
+          contentType: file.mimetype,
+        })),
+      ],
+      headers: {
+        'X-Priority': '1',
+        'X-MSMail-Priority': 'High',
+        'Importance': 'high'
+      }
+    });
 
     // ✅ Send thank you to user with improved headers
     await transporter.sendMail({
