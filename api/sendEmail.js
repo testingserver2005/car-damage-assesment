@@ -224,7 +224,7 @@ app.post("/api/sendEmail", upload.any(), async (req, res) => {
             
             <p style="margin: 30px 0 8px 0;">Med venlig hilsen,<br/><strong>QuickRepair.dk</strong></p>
             
-            <a href="http://quickrepair.dk/" target="_blank"
+            <a href="http://quickrepair.dk/" target="_blank">
             <img 
   src="https://skadesanmeldelse.quickrepair.dk/logo.png" 
   alt="QuickRepair.dk"
