@@ -203,7 +203,7 @@ function App() {
       });
 
       if (response.ok) {
-        toast.success("Rapportet er blevet indsendt med succes!");
+        toast.success("Rapporten er blevet indsendt med succes!");
 
         setAssessmentResult(finalData);
         setCurrentStep(STEPS.SUCCESS);
